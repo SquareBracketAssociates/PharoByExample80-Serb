@@ -17,8 +17,9 @@ env:
     - PATH="$HOME/texlive/bin/x86_64-linux:$PWD/build:$PATH"
 
 install:
-  - git clone https://github.com/pillar-markup/pillar.git -b 7.7.2
+  - git clone https://github.com/pillar-markup/pillar.git -b v7.7.2
   - ./pillar/scripts/ci/install-texlive
+  - chmod a+x pillar/_support/latex/ensure-deps.sh
   - ./_support/latex/ensure-deps.sh
   - ./pillar/scripts/build.sh
 
