@@ -1,11 +1,11 @@
-!!Understanding message syntax
+!!Razumevanje sintakse poruka
 @chapterUnderstandingMessage
 %stef did several passes
 
-Although Pharo's message syntax is extremely simple, it is unconventional and can take some time getting used to.
-This chapter offers some guidance to help you get acclimatized to the syntax for sending messages.
-If you already feel comfortable with the syntax, you may choose to skip this chapter, or come back to it later.
-The Pharo's syntax is closed to the one of Smalltalk, so Smalltalk programmers can be familiar with Pharo's syntax.
+Iako je sintaksa poruka u Pharo-u ekstremno jednostavna, ona je nekonvencionalna i može zahtevati neko vreme za privikavanje na nju. 
+Ovaj odeljak nudi neke smernice koje će vam pomoći da se priviknete na sintaksu za slanje poruka.
+Ako se već osećate ugodno u vezi sa sintaksom, možete odlučiti da preskočite ovaj odeljak, ili da se na njega vratite kasnije.
+Sintaksa Pharo-a je bliska Smalltalk-u, pa ona može biti bliska Smalltalk programerima.
 
 !!!Identifying messages
 
