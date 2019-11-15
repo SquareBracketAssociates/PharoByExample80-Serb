@@ -24,9 +24,8 @@ script:
   - pillar build pdf
 
 after_success:
-  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - mv _result/pdf/index.pdf PBE8-SRB.pdf
-  - bash upload.sh PBE8-SRB.pdf
+  - mv _result/pdf/index.pdf PBE8-serbian-wip.pdf
+  - curl --silent --location https://github.com/probonopd/uploadtool/raw/master/upload.sh | bash -s PBE8-serbian-wip.pdf
 
 branches:
   except:
