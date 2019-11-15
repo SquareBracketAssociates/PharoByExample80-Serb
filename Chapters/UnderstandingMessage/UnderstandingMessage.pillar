@@ -11,7 +11,7 @@ Sintaksa Pharo-a je bliska Smalltalk-u, pa ona može biti bliska Smalltalk progr
 
 U Pharo-u, izuzev sintaksnih elemenata navedenih u Odeljku *@chapterSyntaxNutshell* (\:= ^ . ; # () {} [ : | ]), sve je slanje poruke.
 Moguće je definisati operatore kao što su ==\+== za svoje klase, ali svi operatori imaju isti prioritet.
-Pored toga, nije moguće promeniti arnost metoda. "-" je uvek binarna poruka; ne postoji način da dobijemo unarni ''==\-==''  različitim "overloading"-om.
+Pored toga, nije moguće promeniti arnost metoda. "-" je uvek binarna poruka; ne postoji način da dobijemo unarni "==\-=="  različitim "overloading"-om.
 
 U Pharo-u, redosled u kome se poruke salju određen je ''vrstom'' poruke.
 Postoje tri vrste poruka: ''unarne'', ''binarne'', i ''poruke sa ključnim rečima''.
@@ -38,12 +38,13 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
 |!Slanje poruke |!Tip poruke |!Rezultat
-|==Color yellow== | unarna poruka | daje žutu boju .
-|==aPen  go: 100== | poruka sa ključnim rečima | pomera olovku napred za 100 piksela.
-|==100 + 20== | binarna poruka|  100 se uvećava za 20
-|==Browser open== | unarna poruka | otvara se novi brauzer.
-|==Pen new  go: 100== | unarna i poruka sa ključnim rečima |kreira olovku i pomera je napred za 100 piksela.
-|==aPen go: 100 + 20== | poruka sa ključnim rečima i binarna | pomera olovku napred za 120 piksela.
+|==Color yellow== | unarna | daje žutu boju .
+|==aPen  go: 100== | sa ključnim rečima | pomera olovku napred za 100 piksela.
+|==100 + 20== | binarna |  100 se uvećava za 20
+|==Browser open== | unarna | otvara se novi brauzer.
+|==Pen new  go: 100== | unarna i sa ključnim rečima |kreira olovku i pomera je napred za 100 piksela.
+|					 | sa ključnim rečima |
+|==aPen go: 100 + 20== | sa ključnim rečima i binarna | pomera olovku napred za 120 piksela.
 
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
 - Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== dnemaju argumente.
