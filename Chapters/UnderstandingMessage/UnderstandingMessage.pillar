@@ -216,7 +216,7 @@ Kao što naredni primeri pokazuju, pravila sintakse Pharo-a uopšteno obezbedjuj
 ]]]
 
 
-Nažalost, ovapravila su previše jednostavna za slanje aritmetičkih poruka, pa je neophodno uvesti zagrade kad god je potrebno nametnuti prioritet za binarne operatore.
+Nažalost, ova pravila su previše jednostavna za slanje aritmetičkih poruka, pa je neophodno uvesti zagrade kad god je potrebno nametnuti prioritet za binarne operatore.
 [[[example=true
 1 + 2 * 3
 >>> 9
@@ -227,7 +227,7 @@ Nažalost, ovapravila su previše jednostavna za slanje aritmetičkih poruka, pa
 >>> 7
 ]]]
 
-NAredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se čak i komplikovani izrazi  mogu čitati na prirodan način.
+Naredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se čak i komplikovani izrazi  mogu čitati na prirodan način.
 
 [[[
 [:aClass | aClass methodDict keys select: [:aMethod | (aClass>>aMethod) isAbstract ]] value: Boolean 
@@ -236,10 +236,10 @@ NAredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se ča
 
 Ovde želimo da znamo koji metodi klase ==Boolean== class su apstraktni.
 @@todo fusnota? 
-In fact, we could also have written the equivalent but simpler expression: ==Boolean methodDict select: #isAbstract thenCollect: #selector==. 
-We ask some argument class, ==aClass==, for the keys of its method dictionary, and select those methods of that class that are abstract. 
-Then we bind the argument ==aClass== to the concrete value ==Boolean==. 
-We need parentheses only to send the binary message ==\>\>==, which selects a method from a class, before sending the unary message ==isAbstract== to that method. The result shows us which methods must be implemented by ==Boolean=='s concrete subclasses ==True== and ==False==.
+Zapravo, mogli smo ovo napisati ekvivalentnim ali jednostavnijim izrazom: ==Boolean methodDict select: #isAbstract thenCollect: #selector==. 
+Pitamo neku klasu u argumentu, ==aClass==, za ključeve iz njenog rečnika metoda, i selektujemo metode date klase koji su apstraktni. 
+Zatim vezujemo argument ==aClass== za konkretnu vrednost ==Boolean==. 
+Zagrade su nam potrebne samo za slanje binarne poruke ==\>\>==, koja selektuje metode klase, pre slanja unarne poruke ==isAbstract== metodu. Rezultat nam pokazuje koji metodi moraju biti implementirani u konkretnim klasama ==True== i ==False== koje su podklase klase ==Boolean==.
 
 !!!!!!Example.
 
