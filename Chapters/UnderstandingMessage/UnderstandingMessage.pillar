@@ -241,19 +241,19 @@ Pitamo neku klasu u argumentu, ==aClass==, za ključeve iz njenog rečnika metod
 Zatim vezujemo argument ==aClass== za konkretnu vrednost ==Boolean==. 
 Zagrade su nam potrebne samo za slanje binarne poruke ==\>\>==, koja selektuje metode klase, pre slanja unarne poruke ==isAbstract== metodu. Rezultat nam pokazuje koji metodi moraju biti implementirani u konkretnim klasama ==True== i ==False== koje su podklase klase ==Boolean==.
 
-!!!!!!Example.
+!!!!!!Primer.
 
-In the message ==aPen color: Color yellow==, there is one ''unary'' message ==yellow== sent to the class ==Color== and a ''keyword'' message ==color:== sent to ==aPen==.
-Unary messages are sent first so the message send ==Color yellow== is sent (1).
-This returns a color object which is passed as argument of the message ==aPen color: aColor== (2).
-Figure *@fig:uKeyUn* shows graphically how messages are sent.
+U slanju poruke ==aPen color: Color yellow==, imamo jednu ''unarnu'' poruku ==yellow== poslatu klasi ==Color== i jednu ''poruku sa ključnim rečima'' ==color:== poslatu objektu ==aPen==.
+Unarne poruke se šalju prve pa s eprvo šalje ==Color yellow== (1).
+Ovo vraća objekat color koji se prosleđuje kao argument poruke u ==aPen color: aColor== (2).
+Slika *@fig:uKeyUn* prikazuje grafički kako se poruke šalju.
 
 [[[
-Decomposing the execution of aPen color: Color yellow
-        aPen color: Color yellow
-(1)                       Color yellow        "unary message is sent first"
-                        >>> aColor
-(2)   aPen color: aColor                 "keyword message is sent next"
+Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
+		aPen color: Color yellow
+(1)				Color yellow		"unarne poruke se se šalju prve"
+				>>> aColor
+(2)		aPen color: aColor			"poruka sa ključnim rečima se šalje sledeća"
 ]]]
 
 !!!!!!Example.
