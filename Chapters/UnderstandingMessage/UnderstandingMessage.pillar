@@ -37,6 +37,7 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
+[[[label=tableMassageKinds|Primeri slanja poruka sa uvidom u tip poruke i reyultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -47,7 +48,7 @@ Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100
 |					 | sa ključnim rečima | napred za 100 piksela.
 |==aPen go: 100 + 20== | sa ključnim rečima | pomera olovku napred 
 |					 | i binarna | za 120 piksela.
-
+]]]
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
 - Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== nemaju argumente.
 - Poruke koje imaju jednu ključnu reč i binarne poruke kao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
