@@ -37,6 +37,7 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
+[[[label=tableMassageKinds|Primeri slanja poruka sa uvidom u tip poruke i reyultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -47,27 +48,32 @@ Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100
 |					 | sa ključnim rečima | napred za 100 piksela.
 |==aPen go: 100 + 20== | sa ključnim rečima | pomera olovku napred 
 |					 | i binarna | za 120 piksela.
-
+]]]
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
-- Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== dnemaju argumente.
-- Poruke koje imaju jednu ključnu reč i binarne porukekao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
-- Šalju se pojedinačne i složene poruke. ==Color yellow== i ==100 + 20== su pojedinačne:  poruka se šalje objektu, dok slanje poruke ==aPen go: 100 + 20== komponuje dve poruke: ==+ 20== se šalje objektu ==100==, a ==go:== se šalje objektu ==aPen== sa argumentomkoji je rezultat prve poslate poruke. 
+- Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== nemaju argumente.
+- Poruke koje imaju jednu ključnu reč i binarne poruke kao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
+- Šalju se pojedinačne i složene poruke. ==Color yellow== i ==100 + 20== su pojedinačne:  poruka se šalje objektu, dok slanje poruke ==aPen go: 100 + 20== komponuje dve poruke: ==+ 20== se šalje objektu ==100==, a ==go:== se šalje objektu ==aPen== sa argumentom koji je rezultat prve poslate poruke. 
 - Primalac može biti izraz koji vraća objekat kao što su dodela, slanje poruke ili literal. U ==Pen new go: 100==, poruka ==go: 100== je poslata objektu koji je rezultat izvršavanja poslate poruke ==Pen new==.
 
-!!!Three kinds of messages
+!!!Tri vrste poruka
 
-Pharo defines a few simple rules to determine the order in which the messages are sent.
-These rules are based on the distinction between 3 different kinds of messages:
--''Unary messages'' are messages that are sent to an object without any other information. For example in ==3 factorial==, ==factorial== is a unary message.
--''Binary messages'' are messages consisting of operators (often arithmetic).
-They are binary because they always involve only two objects: the receiver and the argument object. For example in ==10 + 20==, ==+== is a binary message sent to the receiver ==10== with argument ==20==.
--''Keyword messages'' are messages consisting of one or more keywords, each ending with a colon (==:==) and taking an argument.  For example in ==anArray at: 1 put: 10==, the keyword ==at:== takes the argument ==1== and the keyword ==put:== takes the argument ==10==.
+Pharo definiše nekoliko jendostavnih pravila za određivanje redosleda u kom se šalju poruke.
+Ova pravila su zasnovana na pravljenju razlike između tri različite vrste poruka:
+-''Unarne poruke'' su poruke koje se šalju objektu bez ikakvih dodatnih informacija u vidu argumenata. Na primer, u  ==3 factorial==, ==factorial== je unarna poruka. Poslate unarne poruke mogu izvršavati osnovne unarne operacije ili proizvoljne funkcionalnosti, ali uvek zadovoljavaju kriterijum da se šalju bez argumenata.
+-''Binarne poruke'' su poruke koje predstavljaju osnovne binarne operacije (često aritmetičke).
+One su binarne jer uvek obuhvataju tačno dva objekta: primaoca i objekat koji je argument. Na primer u  ==10 + 20==, ==+== je binarna poruka poslata primaocu ==10== sa argumentom ==20==.
+-''Poruke sa ključnim rečima'' su poruke koje se sastoje od jedne ili više ključnih reči, od kojih se svaka završava dvotačkom (==:==) i uzima jedan argument. NA primer u ==anArray at: 1 put: 10==, ključna reč ==at:== uzima argument ==1==, a ključna reč ==put:== uzima argument ==10==.
 
-!!!!Unary messages
+Bitno je uočiti sledeće:
+- Ne postoje poruke sa ključnim rečima koje se šalju bez argumenata. Sve poruke koje se šalju bez argumenata su unarne poruke.
+- Postoji razlika između poruka sa ključnim rečima koje se šalju sa tačno jednim argumentom i binarnih poruka - poslata poruka sa ključnim rečima može izvršiti proizvoljnu funkcionalnost.
 
-Unary messages are messages that do not require any argument.
-They follow the syntactic template: ==receiver messageName==.
-The selector is simply made up of a succession of characters not containing ==:== (''e.g.'', ==factorial==, ==open==, ==class==).
+
+!!!!Unarne poruke
+
+Unarne poruke su poruke koje ne zahtevaju ni jedan argument.
+One prate sintaksni obrazac: ==primaoc imePoruke==.
+Selektor je sastavljen jednostavno od niza karaktera koji ne sadrže ==:== (na primer, ==factorial==, ==open==, ==class==).
 
 [[[example=true
 89 sin
@@ -96,19 +102,19 @@ true not
 
 [[[example=true
 Object class 
->>> Object class  "The class of Object is Object class (BANG)"
+>>> Object class  "Klasa objekta Object je Object class (BENG)"
 ]]]
 
-@@important Unary messages follow the syntactic template: receiver ""selector""
+@@Važno Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
 
-!!!!Binary messages
+!!!!Binarne poruke
 
-Binary messages are messages that require exactly one argument ''and'' whose selector consists of a sequence of one or more characters from the set: ==\+==, ==\-==, ==\*==, ==\/==, ==\&==, ==\===, ==\>==, ==\|==, ==\<==, ==\~==, and ==\@==.
-Note that ==\-\-== is not allowed for parsing reasons.
+Binarne poruke su poruke koje zahtevaju tačno jedan argument ''i'' i čiji se selektor sastoji od niza jednog ili više karaktera iz sledećeg skupa: ==\+==, ==\-==, ==\*==, ==\/==, ==\&==, ==\===, ==\>==, ==\|==, ==\<==, ==\~==, i ==\@==.
+NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem.
 
 [[[
 100@100
->>> 100@100  "creates a Point object"
+>>> 100@100  "kreira Point objekat"
 ]]]
 
 [[[example=true
@@ -128,40 +134,40 @@ Note that ==\-\-== is not allowed for parsing reasons.
 
 [[[example=true
 (4/3) * 3 == 4  
->>> true  "equality is just a binary message, and Fractions are exact"
+>>> true  "jednakost je samo binarna poruka, a razlomci su autentični"
 ]]]
 
 [[[example=true
 (3/4) == (3/4) 
->>> false  "two equal Fractions are not the same object"
+>>> false  "dva jednaka razlomka nisu isti objekat"
 ]]]
 
-@@important Binary messages follow the syntactic template: receiver ""selector"" argument
+@@Važno Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
 
-!!!!Keyword messages
+!!!!Poruke sa ključnim rečima
 
-Keyword messages are messages that require one or more arguments and whose selector consists of one or more keywords each ending in ==\:==.
+Poruke sa ključnim rečima su poruke koje zahtevaju jadan ili više argumenata i čiji se selektor sastoji od jedne ili više ključnih reči od kojih se svaka završava sa  ==\:==.
 
-The following message ==between:and:== is composed of two keywords: ==between:== and ==and:==. The full message is ==between:and:== and it is sent to number.
+U primeru koji sledi, poruka ==between:and:== je sastavljena od dve ključne reči: ==between:== i ==and:==. Kompletna poruka ==between:and:== se šalje broju.
 
 [[[example=true
 2 between: 0 and: 10
 >>> true
 ]]]
 
-Each keyword takes an argument. Hence ==r:g:b:== is a method with three arguments, ==playFileNamed:== and ==at:== are methods with one argument, and ==at:put:== is a method with two arguments. To create an instance of the class ==Color== one can use the method ==r:g:b:== as in ==Color r: 1 g: 0 b: 0==, which creates the color red. Note that the colons are part of the selector.
+Svaka ključna reč uzima jedan argument. Stoga, ==r:g:b:== je poruka sa tri argumenta, ==playFileNamed:== i ==at:== su poruke sa jednim argumentom, a ==at:put:== je poruka sa dva argumenta. Za kreiranje instance klase ==Color== može se poslati poruka ==r:g:b:== kao u slanju poruke ==Color r: 1 g: 0 b: 0==, koje kreira crvenu boju. Važno je uočiti da su dvotačke deo selektora.
 
 [[[example=true
 Color r: 1 g: 0 b: 0
->>> Color red  "creates a new color"
+>>> Color red  "kreira novu boju"
 ]]]
 
 
-In Java or C++, the Pharo method invocation ==Color r: 1 g: 0 b: 0== would be written ==Color.rgb(1,0,0)==.
+U konvencionalnoj sintaksi, slanje poruke ==Color r: 1 g: 0 b: 0== u Pharo-u  odgovaralo bi pozivu metoda zapisanom kao ==Color.rgb(1,0,0)==.
 
 [[[example=true
 1 to: 10
->>> (1 to: 10)  "creates an interval"
+>>> (1 to: 10)  "kreira interval"
 ]]]
 
 
@@ -173,7 +179,7 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@important Keyword messages follow the syntactic template: receiver ""selectorWordOne:"" argumentOne ""wordTwo:"" argumentTwo
+@@Važno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
 
 !!!Message composition
 
