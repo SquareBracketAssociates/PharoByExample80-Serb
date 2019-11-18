@@ -68,11 +68,11 @@ Bitno je uočiti sledeće:
 - Postoji razlika između poruka sa ključnim rečima koje se šalju sa tačno jednim argumentom i binarnih poruka - poslata poruka sa ključnim rečima može izvršiti proizvoljnu funkcionalnost.
 
 
-!!!!Unary messages
+!!!!Unarne poruke
 
-Unary messages are messages that do not require any argument.
-They follow the syntactic template: ==receiver messageName==.
-The selector is simply made up of a succession of characters not containing ==:== (''e.g.'', ==factorial==, ==open==, ==class==).
+Unarne poruke su poruke koje ne zahtevaju ni jedan argument.
+One prate sintaksni obrazac: ==primaoc imePoruke==.
+Selektor je sastavljen jednostavno od niza karaktera koji ne sadrže ==:== (na primer, ==factorial==, ==open==, ==class==).
 
 [[[example=true
 89 sin
@@ -104,7 +104,7 @@ Object class
 >>> Object class  "The class of Object is Object class (BANG)"
 ]]]
 
-@@important Unary messages follow the syntactic template: receiver ""selector""
+@@important Unarne poruke prate sintaksni obrazac: primaoc ""selektor""
 
 !!!!Binary messages
 
