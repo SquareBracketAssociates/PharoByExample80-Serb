@@ -274,7 +274,7 @@ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 
 
 !!!!!!Example.
- As an exercise we let you decompose the execution of the message ==Pen new go: 100 + 20== which is composed of one unary, one keyword and one binary message (see Figure *@fig:uunKeyBin*).
+ Ostavljamo vam,  kao vežbu, da dekomponujete  izvršavanje slanja poruke ==Pen new go: 100 + 20== koja je komponovana od jedne unarne, jedne binarne i jedne poruke sa ključnim rečima (see Figure *@fig:uunKeyBin*).
 
 !!!!Parentheses first
 Parenthesised messages are sent prior to other messages.
