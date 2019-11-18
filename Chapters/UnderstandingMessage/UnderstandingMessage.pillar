@@ -180,7 +180,7 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@note Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
+@@vazno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorReč1:"" argument1 ""Reč2:"" argument2 ... ""RečN:"" argumentN
 
 !!!Komponovanje poruka
 
