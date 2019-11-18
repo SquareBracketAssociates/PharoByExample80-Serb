@@ -37,7 +37,7 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
-[[[label=tableMassageKinds|Primeri slanja poruka sa uvidom u tip poruke i reyultat slanja.
+[[[label=tableMessageExamples|caption=Primeri slanja poruka sa uvidom u tip poruke i rezultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -49,6 +49,7 @@ Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100
 |==aPen go: 100 + 20== | sa ključnim rečima | pomera olovku napred 
 |					 | i binarna | za 120 piksela.
 ]]]
+
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
 - Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== nemaju argumente.
 - Poruke koje imaju jednu ključnu reč i binarne poruke kao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
@@ -105,7 +106,7 @@ Object class
 >>> Object class  "Klasa objekta Object je Object class (BENG)"
 ]]]
 
-@@Važno Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
+@@important Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
 
 !!!!Binarne poruke
 
@@ -142,7 +143,7 @@ NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem
 >>> false  "dva jednaka razlomka nisu isti objekat"
 ]]]
 
-@@Važno Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
+@@important Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
 
 !!!!Poruke sa ključnim rečima
 
@@ -179,23 +180,23 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@Važno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
+@@note Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
 
-!!!Message composition
+!!!Komponovanje poruka
 
-The three kinds of messages each have different precedence, which allows them to be composed in an elegant way.
+Svaka od tri vrste poruka ima razi;it prioritet, što omogućava da se poruke komponuju na elegantan način.
 
-- Unary messages are always sent first, then binary messages and finally keyword messages.
-- Messages in parentheses are sent prior to any kind of messages.
-- Messages of the same kind are evaluated from left to right.
+- Unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima.
+- Poruke u zagradama imaju prioritet u odnosu na sve druge poruke.
+- Poruke iste vrste i preioriteta se izračunavaju s leva na desno.
 
-These rules lead to a very natural reading order.
-Now if you want to be sure that your messages are sent in the order that you want you can always put more parentheses as shown in Figure *@fig:uKeyUn*.
-In this  figure, the message ==yellow== is an unary message and the message ==color:== a keyword message, therefore the message send ==Color yellow== is sent first.
-However as message sends in parentheses are sent first, putting (unnecessary) parentheses around ==Color yellow== just emphasizes that it will be sent first.
-The rest of the section illustrates each of these points.
+Ova pravila dovode do veoma prirodnog redosleda čitanja.
+Ako želite da budete sigurni da će vaše poruke biti poslate u redosledu koji vi želite, uvek možete dodati zagradekao što je prikazano na slici *@fig:uKeyUn*.
+Na slici, poruka ==yellow== je unarna poruka, a poruka ==color:== je poruka s aključnim rečima, zato se prvo šalje poruka ==Color yellow==.
+Pored toga, kako se poruke u zagradama šalju prve, dodavanjem (nepotrebnih) zagrada oko ==Color yellow== samo ističe da će se ovo slanje poruke prvo dogoditi.
+Ostatak sekcije ilustruje ove navode.
 
-+Unary messages are sent first so Color yellow is sent. This returns a color object which is passed as argument of the message aPen color:.>/figures/uKeyUn.png|label=fig:uKeyUn+
++Unarna poruka Color yellow se prva šalje. Ovo vraća color objekat koji se, kao argument, prosleđuje poruci aPen color:.>/figures/uKeyUn.png|label=fig:uKeyUn+
 
 
 !!!!Unary > Binary > Keywords
