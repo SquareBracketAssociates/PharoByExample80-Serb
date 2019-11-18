@@ -101,19 +101,19 @@ true not
 
 [[[example=true
 Object class 
->>> Object class  "The class of Object is Object class (BANG)"
+>>> Object class  "Klasa objekta Object je Object class (BENG)"
 ]]]
 
-@@important Unarne poruke prate sintaksni obrazac: primaoc ""selektor""
+@@Važno Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
 
-!!!!Binary messages
+!!!!Binarne poruke
 
-Binary messages are messages that require exactly one argument ''and'' whose selector consists of a sequence of one or more characters from the set: ==\+==, ==\-==, ==\*==, ==\/==, ==\&==, ==\===, ==\>==, ==\|==, ==\<==, ==\~==, and ==\@==.
-Note that ==\-\-== is not allowed for parsing reasons.
+Binarne poruke su poruke koje zahtevaju tačno jedan argument ''i'' i čiji se selektor sastoji od niza jednog ili više karaktera iz sledećeg skupa: ==\+==, ==\-==, ==\*==, ==\/==, ==\&==, ==\===, ==\>==, ==\|==, ==\<==, ==\~==, i ==\@==.
+NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem.
 
 [[[
 100@100
->>> 100@100  "creates a Point object"
+>>> 100@100  "kreira Point objekat"
 ]]]
 
 [[[example=true
@@ -133,40 +133,40 @@ Note that ==\-\-== is not allowed for parsing reasons.
 
 [[[example=true
 (4/3) * 3 == 4  
->>> true  "equality is just a binary message, and Fractions are exact"
+>>> true  "jednakost je samo binarna poruka, a razlomci su autentični"
 ]]]
 
 [[[example=true
 (3/4) == (3/4) 
->>> false  "two equal Fractions are not the same object"
+>>> false  "dva jednaka razlomka nisu isti objekat"
 ]]]
 
-@@important Binary messages follow the syntactic template: receiver ""selector"" argument
+@@Važno Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
 
-!!!!Keyword messages
+!!!!Poruke sa ključnim rečima
 
-Keyword messages are messages that require one or more arguments and whose selector consists of one or more keywords each ending in ==\:==.
+Poruke sa ključnim rečima su poruke koje zahtevaju jadan ili više argumenata i čiji se selektor sastoji od jedne ili više ključnih reči od kojih se svaka završava sa  ==\:==.
 
-The following message ==between:and:== is composed of two keywords: ==between:== and ==and:==. The full message is ==between:and:== and it is sent to number.
+U primeru koji sledi, poruka ==between:and:== je sastavljena od dve ključne reči: ==between:== i ==and:==. Kompletna poruka ==between:and:== se šalje broju.
 
 [[[example=true
 2 between: 0 and: 10
 >>> true
 ]]]
 
-Each keyword takes an argument. Hence ==r:g:b:== is a method with three arguments, ==playFileNamed:== and ==at:== are methods with one argument, and ==at:put:== is a method with two arguments. To create an instance of the class ==Color== one can use the method ==r:g:b:== as in ==Color r: 1 g: 0 b: 0==, which creates the color red. Note that the colons are part of the selector.
+Svaka ključna reč uzima jedan argument. Stoga, ==r:g:b:== je poruka sa tri argumenta, ==playFileNamed:== i ==at:== su poruke sa jednim argumentom, a ==at:put:== je poruka sa dva argumenta. Za kreiranje instance klase ==Color== može se poslati poruka ==r:g:b:== kao u slanju poruke ==Color r: 1 g: 0 b: 0==, koje kreira crvenu boju. Važno je uočiti da su dvotačke deo selektora.
 
 [[[example=true
 Color r: 1 g: 0 b: 0
->>> Color red  "creates a new color"
+>>> Color red  "kreira novu boju"
 ]]]
 
 
-In Java or C++, the Pharo method invocation ==Color r: 1 g: 0 b: 0== would be written ==Color.rgb(1,0,0)==.
+U konvencionalnoj sintaksi, slanje poruke ==Color r: 1 g: 0 b: 0== u Pharo-u  odgovaralo bi pozivu metoda zapisanom kao ==Color.rgb(1,0,0)==.
 
 [[[example=true
 1 to: 10
->>> (1 to: 10)  "creates an interval"
+>>> (1 to: 10)  "kreira interval"
 ]]]
 
 
@@ -178,7 +178,7 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@important Keyword messages follow the syntactic template: receiver ""selectorWordOne:"" argumentOne ""wordTwo:"" argumentTwo
+@@Važno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
 
 !!!Message composition
 
