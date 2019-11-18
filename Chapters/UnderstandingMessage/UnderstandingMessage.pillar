@@ -251,9 +251,9 @@ Slika *@fig:uKeyUn* prikazuje grafički kako se poruke šalju.
 [[[
 Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 		aPen color: Color yellow
-(1)				Color yellow		"unarne poruke se se šalju prve"
-				>>> aColor
-(2)		aPen color: aColor			"poruka sa ključnim rečima se šalje sledeća"
+(1)         Color yellow         "unarne poruke se se šalju prve"
+               >>> aColor
+(2)         aPen color: aColor   "poruka sa ključnim rečima se šalje sledeća"
 ]]]
 
 !!!!!!Primer.
@@ -261,9 +261,9 @@ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 
 [[[ Dekomponovanje izvršavanja slanja poruke aPen go: 100 + 20
 		aPen go: 100 + 20
-(1)				100 + 20		"binary message first"
-				>>>   120
-(2)		aPen go: 120			"then keyword message"
+(1)         100 + 20         "prvo bnarna poruka"
+               >>>   120
+(2)     aPen go: 120         "zatim poruka sa ključnim rečima"
 
 ]]]
 
@@ -275,6 +275,7 @@ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 
 !!!!!!Example.
  Ostavljamo vam,  kao vežbu, da dekomponujete  izvršavanje slanja poruke ==Pen new go: 100 + 20== koja je komponovana od jedne unarne, jedne binarne i jedne poruke sa ključnim rečima (see Figure *@fig:uunKeyBin*).
+
 
 !!!!Parentheses first
 Parenthesised messages are sent prior to other messages.
