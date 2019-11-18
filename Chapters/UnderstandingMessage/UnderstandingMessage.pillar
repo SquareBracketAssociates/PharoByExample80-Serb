@@ -106,7 +106,7 @@ Object class
 >>> Object class  "Klasa objekta Object je Object class (BENG)"
 ]]]
 
-@@Važno Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
+@@important Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
 
 !!!!Binarne poruke
 
@@ -143,7 +143,7 @@ NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem
 >>> false  "dva jednaka razlomka nisu isti objekat"
 ]]]
 
-@@Važno Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
+@@important Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
 
 !!!!Poruke sa ključnim rečima
 
@@ -180,7 +180,7 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@Važno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
+@@important Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
 
 !!!Komponovanje poruka
 
