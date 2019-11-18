@@ -37,7 +37,7 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
-[[[label=tableMassageKinds|Primeri slanja poruka sa uvidom u tip poruke i reyultat slanja.
+[[[label=tableMassageKinds|caption=Primeri slanja poruka sa uvidom u tip poruke i reyultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -181,16 +181,16 @@ nums
 
 @@Važno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorKlučnaReč1:"" argument1 ""selektorKlučnaReč2:"" argument2 ... ""selektorKlučnaRečN:"" argumentN
 
-!!!Message composition
+!!!Komponovanje poruka
 
-The three kinds of messages each have different precedence, which allows them to be composed in an elegant way.
+Svaka od tri vrste poruka ima razi;it prioritet, što omogućava da se poruke komponuju na elegantan način.
 
-- Unary messages are always sent first, then binary messages and finally keyword messages.
-- Messages in parentheses are sent prior to any kind of messages.
-- Messages of the same kind are evaluated from left to right.
+- Unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima.
+- Poruke u zagradama imaju prioritet u odnosu na sve druge poruke.
+- Poruke iste vrste i preioriteta se izračunavaju s leva na desno.
 
-These rules lead to a very natural reading order.
-Now if you want to be sure that your messages are sent in the order that you want you can always put more parentheses as shown in Figure *@fig:uKeyUn*.
+Ova pravila dovode do veoma prirodnog redosleda čitanja.
+Ako želite da budete sigurni da će vaše poruke biti poslate u redosledu koji vi želite, uvek možete dodati zagradekao što je prikazano na slici *@fig:uKeyUn*.
 In this  figure, the message ==yellow== is an unary message and the message ==color:== a keyword message, therefore the message send ==Color yellow== is sent first.
 However as message sends in parentheses are sent first, putting (unnecessary) parentheses around ==Color yellow== just emphasizes that it will be sent first.
 The rest of the section illustrates each of these points.
