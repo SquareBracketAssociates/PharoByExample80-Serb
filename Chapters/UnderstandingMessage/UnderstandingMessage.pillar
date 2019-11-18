@@ -49,19 +49,24 @@ Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100
 |					 | i binarna | za 120 piksela.
 
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
-- Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== dnemaju argumente.
-- Poruke koje imaju jednu ključnu reč i binarne porukekao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
-- Šalju se pojedinačne i složene poruke. ==Color yellow== i ==100 + 20== su pojedinačne:  poruka se šalje objektu, dok slanje poruke ==aPen go: 100 + 20== komponuje dve poruke: ==+ 20== se šalje objektu ==100==, a ==go:== se šalje objektu ==aPen== sa argumentomkoji je rezultat prve poslate poruke. 
+- Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== nemaju argumente.
+- Poruke koje imaju jednu ključnu reč i binarne poruke kao što su ==go: 100== i ==+ 20== svaka imaju po jedan argument.
+- Šalju se pojedinačne i složene poruke. ==Color yellow== i ==100 + 20== su pojedinačne:  poruka se šalje objektu, dok slanje poruke ==aPen go: 100 + 20== komponuje dve poruke: ==+ 20== se šalje objektu ==100==, a ==go:== se šalje objektu ==aPen== sa argumentom koji je rezultat prve poslate poruke. 
 - Primalac može biti izraz koji vraća objekat kao što su dodela, slanje poruke ili literal. U ==Pen new go: 100==, poruka ==go: 100== je poslata objektu koji je rezultat izvršavanja poslate poruke ==Pen new==.
 
-!!!Three kinds of messages
+!!!Tri vrste poruka
 
-Pharo defines a few simple rules to determine the order in which the messages are sent.
-These rules are based on the distinction between 3 different kinds of messages:
--''Unary messages'' are messages that are sent to an object without any other information. For example in ==3 factorial==, ==factorial== is a unary message.
--''Binary messages'' are messages consisting of operators (often arithmetic).
-They are binary because they always involve only two objects: the receiver and the argument object. For example in ==10 + 20==, ==+== is a binary message sent to the receiver ==10== with argument ==20==.
--''Keyword messages'' are messages consisting of one or more keywords, each ending with a colon (==:==) and taking an argument.  For example in ==anArray at: 1 put: 10==, the keyword ==at:== takes the argument ==1== and the keyword ==put:== takes the argument ==10==.
+Pharo definiše nekoliko jendostavnih pravila za određivanje redosleda u kom se šalju poruke.
+Ova pravila su zasnovana na pravljenju razlike između tri različite vrste poruka:
+-''Unarne poruke'' su poruke koje se šalju objektu bez ikakvih dodatnih informacija u vidu argumenata. Na primer, u  ==3 factorial==, ==factorial== je unarna poruka. Poslate unarne poruke mogu izvršavati osnovne unarne operacije ili proizvoljne funkcionalnosti, ali uvek zadovoljavaju kriterijum da se šalju bez argumenata.
+-''Binarne poruke'' su poruke koje predstavljaju osnovne binarne operacije (često aritmetičke).
+One su binarne jer uvek obuhvataju tačno dva objekta: primaoca i objekat koji je argument. Na primer u  ==10 + 20==, ==+== je binarna poruka poslata primaocu ==10== sa argumentom ==20==.
+-''Poruke sa ključnim rečima'' su poruke koje se sastoje od jedne ili više ključnih reči, od kojih se svaka završava dvotačkom (==:==) i uzima jedan argument. NA primer u ==anArray at: 1 put: 10==, ključna reč ==at:== uzima argument ==1==, a ključna reč ==put:== uzima argument ==10==.
+
+Bitno je uočiti sledeće:
+- Ne postoje poruke sa ključnim rečima koje se šalju bez argumenata. Sve poruke koje se šalju bez argumenata su unarne poruke.
+- Postoji razlika između poruka sa ključnim rečima koje se šalju sa tačno jednim argumentom i binarnih poruka - poslata poruka sa ključnim rečima može izvršiti proizvoljnu funkcionalnost.
+
 
 !!!!Unary messages
 
