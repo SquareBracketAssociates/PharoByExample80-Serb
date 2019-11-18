@@ -37,7 +37,7 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
-[[[label=tableMessageExamples|caption=Primeri slanja poruka sa uvidom u tip poruke i rezultat slanja.
+[[[caption=Primeri slanja poruka sa uvidom u tip poruke i rezultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -199,13 +199,13 @@ Ostatak sekcije ilustruje ove navode.
 +Unarna poruka Color yellow se prva šalje. Ovo vraća color objekat koji se, kao argument, prosleđuje poruci aPen color:.>/figures/uKeyUn.png|label=fig:uKeyUn+
 
 
-!!!!Unary > Binary > Keywords
-Unary messages are sent first, then binary messages, and finally keyword messages.
-We also say that unary messages have a higher  priority over the other kinds of messages.
+!!!!Unarne poruke > Binarne poruke > Poruke sa ključnim rečima
 
- Unary messages are sent first, then binary messages, and finally keyword based messages. ==Unary > Binary > Keyword==
+Unarne poruke imaju viši prioritet od ostalih vrsta poruka.
 
-As these examples show, Pharo's syntax rules generally ensure that message sends can be read in a natural way:
+Unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima. ==Unarne poruke > Binarne poruke > Poruke sa ključnim rečima==
+
+Kao što naredni primeri pokazuju, pravila sintakse Pharo-a uopšteno obezbedjuju da se slanje poruka može čitati na prirodan način:
 [[[
 1000 factorial / 999 factorial 
 >>> 1000
