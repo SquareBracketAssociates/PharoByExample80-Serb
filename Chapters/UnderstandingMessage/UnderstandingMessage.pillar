@@ -256,21 +256,21 @@ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 (2)		aPen color: aColor			"poruka sa ključnim rečima se šalje sledeća"
 ]]]
 
-!!!!!!Example.
- In the message ==aPen go: 100 + 20==, there is a ''binary'' message ==\+ 20== and a ''keyword'' message ==go:==. Binary messages are sent prior to keyword messages so ==100 + 20== is sent first (1): the message ==\+ 20== is sent to the object ==100== and returns the number ==120==. Then the message ==aPen go: 120== is sent with ==120== as argument (2). The following example shows how the message send is executed.
+!!!!!!Primer.
+ U slanju poruke ==aPen go: 100 + 20==, imamo ''binarnu'' poruku ==\+ 20== i 'poruku sa ključnim rečima''  ==go:==. Binarne poruke se šalju pre poruka s aključnim rečima te je ==100 + 20== poslato prvo (1): poruka ==\+ 20== je poslata objektu ==100== što vraća ==120==. Zatim se šalje poruka ==aPen go: 120== sa argumentom ==120== (2). Naredni primer prikazuje redosled izvršavanja ovog slanja poruke.
 
-[[[ Decomposing aPen go: 100 + 20
-      aPen go: 100 + 20
-(1)                 100 + 20           "binary message first"
-                   >>>   120
-(2)  aPen go: 120                   "then keyword message"
+[[[ Dekomponovanje izvršavanja slanja poruke aPen go: 100 + 20
+		aPen go: 100 + 20
+(1)				100 + 20		"binary message first"
+				>>>   120
+(2)		aPen go: 120			"then keyword message"
 
 ]]]
 
 
-+Binary messages are sent before keyword messages>file://figures/uKeyBin.png|lable=fig:uKeyBin|width=35+
++Binarne poruke se šalju pre poruka sa ključnim rečima>file://figures/uKeyBin.png|lable=fig:uKeyBin|width=35+
 
-+Decomposing Pen new go: 100 \+ 20>file://figures/uunKeyBin.png|label=fig:uunKeyBin|width=40+
++Dekomponovanje izvršavanja Pen new go: 100 \+ 20>file://figures/uunKeyBin.png|label=fig:uunKeyBin|width=40+
 
 
 !!!!!!Example.
