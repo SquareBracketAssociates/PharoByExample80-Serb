@@ -37,7 +37,6 @@ Slika *@fig:ellipse* prikazuje dva slanja poruke, ==Color yellow== i ==aMorph co
 
 Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100 + 200== ili ==Color== u slanju poruke ==Color yellow==. Pored toga, primaoc može biti rezultat slanja druge poruke. Na primer, u slanju poruke ==Pen new go: 100==, primaoc poruke ==go: 100== je objekat koji vraća poslata poruka ==Pen new==. U svakom slučaju, poruka se šalje objektu koji se zove ''primaoc'' koji može biti rezultat slanja druge poruke.
 
-[[[caption=Primeri slanja poruka sa uvidom u tip poruke i rezultat slanja.
 |!Slanje poruke |!Tip poruke |!Rezultat
 |==Color yellow== | unarna | daje žutu boju .
 |==aPen  go: 100== | sa ključnim rečima | pomera olovku napred
@@ -48,7 +47,7 @@ Primaoc može biti prvi element poruke kao što je ==100== u slanju poruke ==100
 |					 | sa ključnim rečima | napred za 100 piksela.
 |==aPen go: 100 + 20== | sa ključnim rečima | pomera olovku napred 
 |					 | i binarna | za 120 piksela.
-]]]
+
 
 Tabela prikazuje nekoliko primera slanja poruka. Treba primetiti nekoliko činjenica:
 - Nemaju sve poslate poruke argumente. Unarne poruke kao što je ==open== nemaju argumente.
@@ -106,14 +105,14 @@ Object class
 >>> Object class  "Klasa objekta Object je Object class (BENG)"
 ]]]
 
-@@important Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
+@@vazno Unarne poruke prate sintaksni obrazac: primaoc ""selektor"".
 
 !!!!Binarne poruke
 
 Binarne poruke su poruke koje zahtevaju tačno jedan argument ''i'' i čiji se selektor sastoji od niza jednog ili više karaktera iz sledećeg skupa: ==\+==, ==\-==, ==\*==, ==\/==, ==\&==, ==\===, ==\>==, ==\|==, ==\<==, ==\~==, i ==\@==.
-NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem.
+Napominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem.
 
-[[[
+[[[example=true
 100@100
 >>> 100@100  "kreira Point objekat"
 ]]]
@@ -143,7 +142,7 @@ NApominjemo da ==\-\-== nij edozvoljeno iz razloga koji su u vezi sa parsiranjem
 >>> false  "dva jednaka razlomka nisu isti objekat"
 ]]]
 
-@@important Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
+@@vazno Binarne poruke prate sintaksni obrazac: primaoc ""selektor"" argument.
 
 !!!!Poruke sa ključnim rečima
 
@@ -172,7 +171,7 @@ U konvencionalnoj sintaksi, slanje poruke ==Color r: 1 g: 0 b: 0== u Pharo-u  od
 ]]]
 
 
-[[[
+[[[example=true
 | nums |
 nums := Array newFrom: (1 to: 5).
 nums at: 1 put: 6.
@@ -180,12 +179,12 @@ nums
 >>> #(6 2 3 4 5)
 ]]]
 
-@@vazno Poruke sa ključnim rečima prate sintaksni obrazac: primaoc ""selektorReč1:"" argument1 ""Reč2:"" argument2 ... ""RečN:"" argumentN
+@@vazno Poruke sa ključnim rečima prate sintaksni obrazac: 
+primaoc ""selektorReč1:"" argument1 ""Reč2:"" argument2 ... ""RečN:"" argumentN
 
 !!!Komponovanje poruka
 
 Svaka od tri vrste poruka ima razi;it prioritet, što omogućava da se poruke komponuju na elegantan način.
-
 - Unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima.
 - Poruke u zagradama imaju prioritet u odnosu na sve druge poruke.
 - Poruke iste vrste i preioriteta se izračunavaju s leva na desno.
@@ -196,17 +195,17 @@ Na slici, poruka ==yellow== je unarna poruka, a poruka ==color:== je poruka s ak
 Pored toga, kako se poruke u zagradama šalju prve, dodavanjem (nepotrebnih) zagrada oko ==Color yellow== samo ističe da će se ovo slanje poruke prvo dogoditi.
 Ostatak sekcije ilustruje ove navode.
 
-+Unarna poruka Color yellow se prva šalje. Ovo vraća color objekat koji se, kao argument, prosleđuje poruci aPen color:.>/figures/uKeyUn.png|label=fig:uKeyUn+
++Unarna poruka ==Color yellow== se prva šalje. Ovo vraća color objekat koji se, kao argument, prosleđuje poruci aPen color:.>/figures/uKeyUn.png|label=fig:uKeyUn+
 
 
 !!!!Unarne poruke > Binarne poruke > Poruke sa ključnim rečima
 
-Unarne poruke imaju viši prioritet od ostalih vrsta poruka.
+Unarne poruke imaju viši prioritet od ostalih vrsta poruka. Tako, unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima. 
 
-Unarne poruke se uvek prve šalju, zatim binarne i konačno poruke sa ključnim rečima. ==Unarne poruke > Binarne poruke > Poruke sa ključnim rečima==
+@@vazno ==Unarne poruke > Binarne poruke > Poruke sa ključnim rečima==
 
 Kao što naredni primeri pokazuju, pravila sintakse Pharo-a uopšteno obezbedjuju da se slanje poruka može čitati na prirodan način:
-[[[
+[[[example=true
 1000 factorial / 999 factorial 
 >>> 1000
 ]]]
@@ -217,7 +216,7 @@ Kao što naredni primeri pokazuju, pravila sintakse Pharo-a uopšteno obezbedjuj
 ]]]
 
 
-Unfortunately the rules are a bit too simplistic for arithmetic message sends, so you need to introduce parentheses whenever you want to impose a priority over binary operators:
+Nažalost, ovapravila su previše jednostavna za slanje aritmetičkih poruka, pa je neophodno uvesti zagrade kad god je potrebno nametnuti prioritet za binarne operatore.
 [[[example=true
 1 + 2 * 3
 >>> 9
@@ -228,14 +227,15 @@ Unfortunately the rules are a bit too simplistic for arithmetic message sends, s
 >>> 7
 ]]]
 
-The following example, which is a bit more complex (!), offers a nice illustration that even complicated \st expressions can be read in a natural way:
+NAredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se čak i komplikovani izrazi  mogu čitati na prirodan način.
 
 [[[
 [:aClass | aClass methodDict keys select: [:aMethod | (aClass>>aMethod) isAbstract ]] value: Boolean 
 >>> an IdentitySet(#or: #| #and: #& #ifTrue: #ifTrue:ifFalse: #ifFalse: #not #ifFalse:ifTrue:)
 ]]]
 
-Here we want to know which methods of the ==Boolean== class are abstract\footnote. 
+Ovde želimo da znamo koji metodi klase ==Boolean== class su apstraktni.
+@@todo fusnota? 
 In fact, we could also have written the equivalent but simpler expression: ==Boolean methodDict select: #isAbstract thenCollect: #selector==. 
 We ask some argument class, ==aClass==, for the keys of its method dictionary, and select those methods of that class that are abstract. 
 Then we bind the argument ==aClass== to the concrete value ==Boolean==. 
@@ -279,7 +279,7 @@ Decomposing the execution of aPen color: Color yellow
 !!!!Parentheses first
 Parenthesised messages are sent prior to other messages.
 
-@@important (Msg) > Unary > Binary > Keyword
+@@vazno (Msg) > Unary > Binary > Keyword
 
 Here are some examples. The first example shows that parentheses are not needed when the order is the one we want. 
 Here we compute tangent of 1.5, then we round it and convert it as a string.
