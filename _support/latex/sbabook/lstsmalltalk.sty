@@ -3,14 +3,9 @@
 %
 \RequirePackage{listings}%
 \RequirePackage{ifthen}
-\RequirePackage{inputenc}
 % \RequirePackage{graphicx}%
 % \RequirePackage{stmaryrd}%
 %
-\lstset{inputencoding=utf8}
-\lstset{extendedchars=true}
- 
-
 \newboolean{quickdefs}\setboolean{quickdefs}{true}
 \DeclareOption{nodefs}{\setboolean{quickdefs}{false}}
 \ProcessOptions\relax
@@ -50,17 +45,7 @@
 %     {:=}{{$\mathrel{\mathop:}=$\ }}2%$\shortleftarrow$\ }}2
 %     {^}{{\raisebox{0.5ex}{$\wedge$}}}1%\raisebox{1.5ex}{\scalebox{1}[-1]{$\lightning$}}\,}}2%\textuparrow\ }}2
     {>>}{{\,}>>{\,}}3
-    {>>>}{>>>}3
-	{ć}{{\'c}}1
-    {č}{{\v{c}}}1
-    {đ}{{\dj{}}}1
-    {š}{{\v{s}}}1
-    {ž}{{\v{z}}}1
-    {Ć}{{\'C}}1
-    {Č}{{\v{C}}}1
-    {Đ}{{\DJ{}}}1
-    {Š}{{\v{S}}}1
-    {Ž}{{\v{Z}}}1,
+    {>>>}{>>>}3,
   tabsize=4
 }[keywords,comments,strings]%
 \endinput
