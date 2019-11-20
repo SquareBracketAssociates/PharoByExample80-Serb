@@ -248,8 +248,7 @@ Unarne poruke se šalju prve pa s eprvo šalje ==Color yellow== (1).
 Ovo vraća objekat color koji se prosleđuje kao argument poruke u ==aPen color: aColor== (2).
 Slika *@fig:uKeyUn* prikazuje grafički kako se poruke šalju.
 
-[[[
-Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
+[[[ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 		aPen color: Color yellow
 (1)         Color yellow         "unarne poruke se se šalju prve"
                >>> aColor
@@ -261,7 +260,7 @@ Dekomponovanje izvršavanja slanja poruke aPen color: Color yellow
 
 [[[ Dekomponovanje izvršavanja slanja poruke aPen go: 100 + 20
 		aPen go: 100 + 20
-(1)         100 + 20         "prvo bnarna poruka"
+(1)         100 + 20         "prvo binarna poruka"
                >>>   120
 (2)     aPen go: 120         "zatim poruka sa ključnim rečima"
 
