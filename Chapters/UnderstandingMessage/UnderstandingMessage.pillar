@@ -4,12 +4,12 @@
 
 Iako je sintaksa poruka u Pharo-u ekstremno jednostavna, ona je nekonvencionalna i može zahtevati neko vreme za privikavanje na nju. 
 Ovaj odeljak nudi neke smernice koje će vam pomoći da se priviknete na sintaksu za slanje poruka.
-Ako se već osećate ugodno u vezi sa sintaksom, možete odlučiti da preskočite ovaj odeljak, ili da se na njega vratite kasnije.
+Ako se već osećate ugodno u vezi sa sintaksom, možete odlučiti da preskočite ovu glavu, ili da se na nju vratite kasnije.
 Sintaksa Pharo-a je bliska Smalltalk-u, pa ona može biti bliska Smalltalk programerima.
 
 !!!Identifikovanje poruka
 
-U Pharo-u, izuzev sintaksnih elemenata navedenih u Odeljku *@chapterSyntaxNutshell* (\:= ^ . ; # () {} [ : | ]), sve je slanje poruke.
+U Pharo-u, izuzev sintaksnih elemenata navedenih u glavi *@chapterSyntaxNutshell* (\:= ^ . ; # () {} [ : | ]), sve je slanje poruke.
 Moguće je definisati operatore kao što su ==\+== za svoje klase, ali svi operatori imaju isti prioritet.
 Pored toga, nije moguće promeniti arnost metoda. "-" je uvek binarna poruka; ne postoji način da dobijemo unarni "==\-=="  različitim "overloading"-om.
 
