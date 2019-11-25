@@ -317,7 +317,7 @@ Slanje poruke ==(65@325 extent: 134@100) center== vraća centar pravougaonika č
 
 
 [[[
-Example of Parentheses.
+Primer sa zagradama
       (65@325 extent: 134@100) center
 (1)   65@325                        "binarna"
       >>> aPoint
