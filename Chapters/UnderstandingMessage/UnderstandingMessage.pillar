@@ -317,7 +317,7 @@ Slanje poruke ==(65@325 extent: 134@100) center== vraća centar pravougaonika č
 
 
 [[[
-Primer sa zagradama.
+Example of Parentheses.
       (65@325 extent: 134@100) center
 (1)   65@325                        "binarna"
       >>> aPoint
@@ -329,7 +329,7 @@ Primer sa zagradama.
       >>> 132@375
 ]]]
 
-!!!!From left to right
+!!!!Sleva nadesno
 Now we know how messages of different kinds or priorities are handled. The final question to be addressed is how messages with the same priority are sent. They are sent from the left to the right. Note that you already saw this behaviour in  the previous example where the two point creation messages (==\@==) were sent first as shown in Figure *@fig:unaryMessages*.
 
 +Decomposing Pen new down.>file://figures/ucompoUn.png|label=fig:unaryMessages|width=60+
