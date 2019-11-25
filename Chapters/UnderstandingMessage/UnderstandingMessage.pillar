@@ -328,15 +328,14 @@ Primer sa zagradama.
 ]]]
 
 !!!!Sleva nadesno
-Now we know how messages of different kinds or priorities are handled. The final question to be addressed is how messages with the same priority are sent. They are sent from the left to the right. Note that you already saw this behaviour in  the previous example where the two point creation messages (==\@==) were sent first as shown in Figure *@fig:unaryMessages*.
+Sada znamo kako se rukuje porukama različitih vrsta i prioriteta. Poslednje pitanje na koje treba da odgovorimo je kako se šalju poruke istog prioriteta. One se šalju sleva nadesno. Primetimo da ste već videli ovo ponašanje u primeru == 1.5 tan rounded asString = gde su sve unarne poruke poslate redom sleva nadesno što je ekvivalentno sa ==(((1.5 tan) rounded) asString)==.
 
-+Decomposing Pen new down.>file://figures/ucompoUn.png|label=fig:unaryMessages|width=60+
+@@vazno Kada su poruke iste vrste, redosled izvršavanja je sleva nadesno.
 
+!!!!!!Primer.
+U slanju poruke ==Pen new down== sve poruke su unarne, pa se najlevlja ==Pen new==, salje prva. Ovo vraća novokreirani objekat klase Pen kom se šalje poruka ==down==, kao što je prikazano na slici *@fig:unaryMessages*.
 
-@@important When the messages are of the same kind, the order of execution is from left to right.
-
-!!!!!!Example.
-In the message sends ==Pen new down== all messages are unary messages, so the leftmost one, ==Pen new==, is sent first. This returns a newly created pen to which the second message ==down== is sent, as shown in Figure *@fig:unaryMessages*.
++Dekomponovanje Pen new down.>file://figures/ucompoUn.png|label=fig:unaryMessages|width=60+
 
 !!!!Arithmetic inconsistencies
 The message composition rules are simple but they result in inconsistency for the execution of arithmetic message sends expressed in terms of binary messages. 
