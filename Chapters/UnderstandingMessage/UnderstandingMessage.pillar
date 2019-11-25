@@ -234,7 +234,7 @@ Naredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se ča
 >>> an IdentitySet(#or: #| #and: #& #ifTrue: #ifTrue:ifFalse: #ifFalse: #not #ifFalse:ifTrue:)
 ]]]
 
-Ovde želimo da znamo koji metodi klase ==Boolean== class su apstraktni.
+Ovde želimo da znamo koji metodi klase ==Boolean== su apstraktni.
 @@todo fusnota? 
 Zapravo, mogli smo ovo napisati ekvivalentnim ali jednostavnijim izrazom: ==Boolean methodDict select: #isAbstract thenCollect: #selector==. 
 Pitamo neku klasu u argumentu, ==aClass==, za ključeve iz njenog rečnika metoda, i selektujemo metode date klase koji su apstraktni. 
@@ -267,32 +267,34 @@ Slika *@fig:uKeyUn* prikazuje grafički kako se poruke šalju.
 ]]]
 
 
-+Binarne poruke se šalju pre poruka sa ključnim rečima>file://figures/uKeyBin.png|lable=fig:uKeyBin|width=35+
++Binarne poruke se šalju pre poruka sa ključnim rečima>file://figures/uKeyBin.png|label=fig:uKeyBin|width=35+
 
 +Dekomponovanje izvršavanja Pen new go: 100 \+ 20>file://figures/uunKeyBin.png|label=fig:uunKeyBin|width=40+
 
 
-!!!!!!Example.
+!!!!!!Primer.
  Ostavljamo vam,  kao vežbu, da dekomponujete  izvršavanje slanja poruke ==Pen new go: 100 + 20== koja je komponovana od jedne unarne, jedne binarne i jedne poruke sa ključnim rečima (see Figure *@fig:uunKeyBin*).
 
 
-!!!!Parentheses first
-Parenthesised messages are sent prior to other messages.
+!!!!Zagrade prvo
+Poruke u zagradama se šalju pre drugih poruka.
 
-@@vazno (Msg) > Unary > Binary > Keyword
+@@važno (Slanje poruke) > unarna > binarna > sa kljčnim rečima
 
-Here are some examples. The first example shows that parentheses are not needed when the order is the one we want. 
-Here we compute tangent of 1.5, then we round it and convert it as a string.
+Slede neki primeri. 
+
+Prvi primer prikazuje da zagrade nisu potrebne kada je redosled onakakv kakav mi želimo, tj. da je rezultat isti kada ovo zapišemo sa i bez zagrada.
+Ovde računamo tangens od 1.5, zatim ga zaokružujemo i konvertujemo u string.
 
 [[[example=true
 1.5 tan rounded asString = (((1.5 tan) rounded) asString) 
 >>> true
 ]]]
 
-The second example shows that ==factorial== is executed prior to the sum and if we want to first perform the sum of 3 and 4 we should use parentheses as shown below.
+Drugi primer prikazuje da se ==factorial== šalje pre sabiranja i ako želimo da se prvo saberu 3 i 4 treba da koristimo zagrade kao što je prikazano ispod.
 [[[example=true
 3 + 4 factorial
->>> 27    "(not 5040)"
+>>> 27    "(ne 5040)"
 ]]]
 
 [[[example=true
@@ -300,30 +302,30 @@ The second example shows that ==factorial== is executed prior to the sum and if 
 >>> 5040
 ]]]
 
-Similarly in the following example, we need the parentheses to force sending ==lowMajorScaleOn:== before ==play==.
+Slično, u narednom primeru su nam potrebne zagrade da bismo postigli slanje poruke ==lowMajorScaleOn:== pre ==play==.
 
 [[[
 (FMSound lowMajorScaleOn: FMSound clarinet) play
-"(1) send the message clarinet to the FMSound class to create a clarinet sound.
- (2) send this sound to FMSound as argument to the lowMajorScaleOn: keyword message.
- (3) play the resulting sound."
+"(1) šaljemo poruku clarinet klasi FMSound da kreira zvuk klarineta.
+ (2) šaljemo ovaj zvuk, objekat klase FMSound, kao argument poruke lowMajorScaleOn:.
+ (3) oglašava se rezultujući zvuk."
 ]]]
 
-!!!!!!Example.
-The message ==(65@325 extent: 134@100) center== returns the center of a rectangle whose top left point is (65, 325) and whose size is 134*100. The following example shows how the message is decomposed and sent. First the message between parentheses is sent: it contains two binary messages ==65@325== and ==134@100== that are sent first and return points, and a keyword message ==extent:== which is then sent and returns a rectangle. Finally the unary message ==center== is sent to the rectangle and a point is returned. Evaluating the message without parentheses would lead to an error because the object ==100== does not understand the message ==center==.
+!!!!!!Primer.
+Slanje poruke ==(65@325 extent: 134@100) center== vraća centar pravougaonika čije se gornje levo teme nalazi u tački (65, 325) a čije su dimenzije 134*100. Primer koji sledi pokazuje kako se poruke dekomponuju i šalju. Prvo se šalje poruka u zagradama. Ovde su sadržane dve binarne poruke, ==65@325== i ==134@100==, koje se šalju prve i vraćaju takče (eng.  points), i poruka sa ključnim rečima ==extent:== koja se zatim šalje i vraća pravougaonik. Konačno, unarna poruka ==center== pravougaoniku i ona vraća tačku. Evaluacija ove poruke bez zagrada bi dovela do greške jer objekat ==100== ne razume poruku ==center==.
 
 
 
 [[[
 Example of Parentheses.
       (65@325 extent: 134@100) center
-(1)   65@325                                                    "binary"
-    >>> aPoint
-(2)                                134@100                     "binary"
-                                 >>> anotherPoint
-(3)   aPoint extent: anotherPoint                       "keyword"
+(1)   65@325                        "binarna"
+      >>> aPoint
+(2)   134@100                       "binarna"
+      >>> anotherPoint
+(3)   aPoint extent: anotherPoint   "sa ključnim rečima"
       >>> aRectangle
-(4)   aRectangle center                                     "unary"
+(4)   aRectangle center             "unarna"
       >>> 132@375
 ]]]
 
