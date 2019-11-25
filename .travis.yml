@@ -21,6 +21,9 @@ install:
 script:
   - pillar build pdf
 
+after_failure:
+  - cat _result/pdf/index.log
+
 after_success:
   - mv _result/pdf/index.pdf PBE8-serbian-wip.pdf
   - curl --silent --location https://github.com/probonopd/uploadtool/raw/master/upload.sh | bash -s PBE8-serbian-wip.pdf
