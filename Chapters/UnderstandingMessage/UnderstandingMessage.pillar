@@ -226,6 +226,7 @@ Nažalost, ova pravila su previše jednostavna za slanje aritmetičkih poruka, p
 1 + (2 * 3)
 >>> 7
 ]]]
+Aritmetičkim nedoslednostima ćemo posvetiti posebnu sekciju.
 
 Naredni primer, koji je nešto složeniji (!), pruža lepu ilustraciju da se čak i komplikovani izrazi  mogu čitati na prirodan način.
 
@@ -337,14 +338,14 @@ U slanju poruke ==Pen new down== sve poruke su unarne, pa se najlevlja ==Pen new
 
 +Dekomponovanje Pen new down.>file://figures/ucompoUn.png|label=fig:unaryMessages|width=60+
 
-!!!!Arithmetic inconsistencies
-The message composition rules are simple but they result in inconsistency for the execution of arithmetic message sends expressed in terms of binary messages. 
-Here we see the common situations where extra parentheses are needed.
+!!!!Arithmetičke nedoslednosti
+Pravila za komonovanje poruka su jednostavna ali ona rezultuju nedoslednostima za izračunavanje aritmetičkih operacija koje se izvršavaju u vidu poslatij binarnih poruka.
+Slede neke uobičajene situacije u kojima su zagrade neophodne.
 
 
 [[[
 3 + 4 * 5
->>> 35    "(not 23)  Binary messages sent from left to right"
+>>> 35    "(ne 23)  Binarne poruke su poslate sleva nadesno"
 ]]]
 
 [[[example=true
@@ -354,7 +355,7 @@ Here we see the common situations where extra parentheses are needed.
 
 [[[example=true
 1 + 1/3
->>> (2/3)    "and not 4/3"
+>>> (2/3)    "ne 4/3"
 ]]]
 
 [[[example=true
@@ -364,7 +365,7 @@ Here we see the common situations where extra parentheses are needed.
 
 [[[example=true
 1/3 + 2/3       
->>> (7/9)    "and not 1"
+>>> (7/9)    "ne 1"
 ]]]
 
 [[[example=true
@@ -372,50 +373,50 @@ Here we see the common situations where extra parentheses are needed.
 >>> 1
 ]]]
 
-!!!!!!Example.
-In the message sends ==20 \+ 2 \* 5==, there are only binary messages ==\+== and ==\*==. However in \st there is no specific priority for the operations ==\+== and ==\*==. They are just binary messages, hence ==\*== does not have priority over ==\+==. Here the leftmost message ==\+== is sent first (1) and then the ==\*== is sent to the result as shown in below.
+!!!!!!Primer.
+U slanjima poruka ==20 \+ 2 \* 5==, imamo samo binarne poruke ==\+== i ==\*==. Pored toga, u Pharo-u ne postoji specifičan prioritet za operacije ==\+== i ==\*==. One su samo binarne poruke i stoga ==\*== nema prioritet nad ==\+==. Ovde se najlevlja poruka ==\+== šalje prva (1) nakon čega se ==\*== rezultatu kao što je prikazano ispod.
 
-[[[Decomposing 20 + 2 * 5
-"As there is no priority among binary messages, the leftmost message + is evaluated first even if by the rules of arithmetic the * should be sent first."
+[[[
+Dekomponovanje 20 + 2 * 5
+"Kako ne postoji prioritet medju binarnim porukama, najlevlja poruka + se izračunava prva iako po pravilima aritmetike * treba biti poslato prvo."
 
      20 + 2 * 5
 (1)  20 + 2 >>> 22
-(2)  22       * 5 >>> 110
+(2)  22     * 5 >>> 110
 
 ]]]
 
-+Default execution order.>file://figures/ucompoNoBracketPar.png|width=55+
++Uobičajeni redosled izračunavanja.>file://figures/ucompoNoBracketPar.png|width=55+
 
 
-As shown in the previous example the result of this message send is not ==30== but ==110==. This result is perhaps unexpected but follows directly from the rules used to send messages. This is the price to pay for the simplicity of the \st model. To get the correct result, we should use parentheses. When messages are enclosed in parentheses, they are evaluated first. Hence the message send ==20 \+ (2 \* 5)== returns the result as shown.
+Kao što je prikazano prethodnimm primerom rezultat izračunavanja je ==30==, a ne ==110==. Ovaj rezultat je možda neočekivana, ali direktno prati pravila za slanje poruka. Ovo je cena koja se plaća za jednostavnost modela. Da bismo dobili ispravan rezultat, treba d akoristimo zagrade. Kada su poruke okružene zagradama one se izračunavaju prve. Stoga slanje poruke ==20 \+ (2 \* 5)== vraća rezultat 30 kao što je prikazano.
 
 [[[
-Decomposing 20 + (2 * 5)
-"The messages surrounded by parentheses are evaluated first therefore * is sent prior to + which produces the correct behaviour."
+Dekomponovanje 20 + (2 * 5)
+"Poruka u zagradama se izračunava prva i stoga je * poslata pre + što dovodi do ispravnog ponašanja."
 
     20 + (2 * 5)
-(1)        (2 * 5) >>> 10
+(1)      (2 * 5) >>> 10
 (2) 20 + 10      >>> 30
 ]]]
 
 
-+Changing default execution order using parentheses.>file://figures/ucompoNumberBracket.png|width=55+
++Promena uobičajenog redosleda izvračunavanja upotrebom zagrada.>file://figures/ucompoNumberBracket.png|width=55+
 
-@@important In Pharo, arithmetic operators such as ==\+== and ==\*== do not have different priority. ==\+== and ==\*== are just binary messages, therefore ==\*== does not have priority over ==\+==. Use parentheses to obtain the desired result.
+@@vazno U Pharo-u, aritmetičke operacije kao što su ==\+== i ==\*== nemaju različit prioritet. ==\+== i ==\*== su samo binarne poruke i stoga ==\*== nema prioritet nad ==\+==. Korititi zagrade za dobijanje željenog rezultata.
 
-+Equivalent messages using parentheses.>file://figures/uKeyUnBinPar.png|width=80+
++Ekvivalentne poruke upotrebom zagrada.>file://figures/uKeyUnBinPar.png|width=80+
 
-+Equivalent messages using parentheses.>file://figures/uunKeyBinPar.png|width=80+
++Ekvivalentne poruke upotrebom zagrada.>file://figures/uunKeyBinPar.png|width=80+
 
-""Table : Message sends and their fully parenthesized equivalents""
-
-|!Implicit precedence |!Explicitly parenthesized equivalent
+""Tebela: Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama""
+|!Implicitni prioritet |!Explicitni prioritet definisan zagradama
 |aPen color: Color yellow | aPen color: (Color yellow)
 | aPen go: 100 \+ 20= | Pen go: (100 \+ 20)
 | aPen penSize: aPen penSize \+ 2 | aPen penSize: ((aPen penSize) \+ 2)
 | 2 factorial \+ 4 | (2 factorial) \+ 4
 
-Note that the first rule stating that unary messages are sent prior to binary and keyword messages avoids the need to put explicit parentheses around them. Table above shows message sends written following the rules and equivalent message sends if the rules would not exist. Both message sends result in the same effect or return the same value.
+Primetimo da se prvim pravilom koje ističe da se unarne poruke šalju pr binarnih, a binarne pre poruka s aključnim rečima izbegava potreba za eksplicitnim navođenjem zagrada oko njih. tabela iznad prikazuje slanja poruka zapisana poštujući ova pravila i ekvivalentna slanja poruka zapisana kao da ova pravila ne postoje. Oba slanja svake poruke zapisana na dva načina imaju isti rezultat i vraćaju istu vrednost.
 
 !!!Hints for identifying keyword messages
 
