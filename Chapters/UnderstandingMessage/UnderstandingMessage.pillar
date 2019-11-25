@@ -314,10 +314,8 @@ Slično, u narednom primeru su nam potrebne zagrade da bismo postigli slanje por
 !!!!!!Primer.
 Slanje poruke ==(65@325 extent: 134@100) center== vraća centar pravougaonika čije se gornje levo teme nalazi u tački (65, 325) a čije su dimenzije 134*100. Primer koji sledi pokazuje kako se poruke dekomponuju i šalju. Prvo se šalje poruka u zagradama. Ovde su sadržane dve binarne poruke, ==65@325== i ==134@100==, koje se šalju prve i vraćaju takče (eng.  points), i poruka sa ključnim rečima ==extent:== koja se zatim šalje i vraća pravougaonik. Konačno, unarna poruka ==center== pravougaoniku i ona vraća tačku. Evaluacija ove poruke bez zagrada bi dovela do greške jer objekat ==100== ne razume poruku ==center==.
 
-
-
 [[[
-Example of Parentheses.
+Primer sa zagradama.
       (65@325 extent: 134@100) center
 (1)   65@325                        "binarna"
       >>> aPoint
