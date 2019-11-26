@@ -409,7 +409,7 @@ Dekomponovanje 20 + (2 * 5)
 
 +Ekvivalentne poruke upotrebom zagrada.>file://figures/uunKeyBinPar.png|width=80+
 
-${table:label=value|caption=Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama}$
+%${table:label=value|caption=Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama}$
 |!Implicitni prioritet |!Explicitni prioritet definisan zagradama
 |aPen color: Color yellow | aPen color: (Color yellow)
 | aPen go: 100 \+ 20= | Pen go: (100 \+ 20)
