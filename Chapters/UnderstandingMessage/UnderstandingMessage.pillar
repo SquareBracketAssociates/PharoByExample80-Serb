@@ -409,14 +409,14 @@ Dekomponovanje 20 + (2 * 5)
 
 +Ekvivalentne poruke upotrebom zagrada.>file://figures/uunKeyBinPar.png|width=80+
 
-@Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama>tableBracketsAndNot
+${table:label=value|caption=Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama}$
 |!Implicitni prioritet |!Explicitni prioritet definisan zagradama
 |aPen color: Color yellow | aPen color: (Color yellow)
 | aPen go: 100 \+ 20= | Pen go: (100 \+ 20)
 | aPen penSize: aPen penSize \+ 2 | aPen penSize: ((aPen penSize) \+ 2)
 | 2 factorial \+ 4 | (2 factorial) \+ 4
 
-Primetimo da se prvim pravilom koje ističe da se unarne poruke šalju pr binarnih, a binarne pre poruka s aključnim rečima izbegava potreba za eksplicitnim navođenjem zagrada oko njih. Tabela *@tableBracketsAndNot* iznad prikazuje slanja poruka zapisana poštujući ova pravila i ekvivalentna slanja poruka zapisana kao da ova pravila ne postoje. Oba slanja svake poruke zapisana na dva načina imaju isti rezultat i vraćaju istu vrednost.
+Primetimo da se prvim pravilom koje ističe da se unarne poruke šalju pre binarnih, a binarne pre poruka s aključnim rečima izbegava potreba za eksplicitnim navođenjem zagrada oko njih. Tabela iznad prikazuje slanja poruka zapisana poštujući ova pravila i ekvivalentna slanja poruka zapisana kao da ova pravila ne postoje. Oba slanja svake poruke zapisana na dva načina imaju isti rezultat i vraćaju istu vrednost.
 
 !!!Smernice za prepoznavanje poruka sa ključnim rečima
 
