@@ -329,7 +329,7 @@ Primer sa zagradama.
 ]]]
 
 !!!!Sleva nadesno
-Sada znamo kako se rukuje porukama različitih vrsta i prioriteta. Poslednje pitanje na koje treba da odgovorimo je kako se šalju poruke istog prioriteta. One se šalju sleva nadesno. Primetimo da ste već videli ovo ponašanje u primeru == 1.5 tan rounded asString = gde su sve unarne poruke poslate redom sleva nadesno što je ekvivalentno sa ==(((1.5 tan) rounded) asString)==.
+Sada znamo kako se rukuje porukama različitih vrsta i prioriteta. Poslednje pitanje na koje treba da odgovorimo je kako se šalju poruke istog prioriteta. One se šalju sleva nadesno. Primetimo da ste već videli ovo ponašanje u primeru == 1.5 tan rounded asString == gde su sve unarne poruke poslate redom sleva nadesno što je ekvivalentno sa ==(((1.5 tan) rounded) asString)==.
 
 @@vazno Kada su poruke iste vrste, redosled izvršavanja je sleva nadesno.
 
