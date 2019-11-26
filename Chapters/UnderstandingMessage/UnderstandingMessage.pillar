@@ -528,13 +528,13 @@ Point new setX: 25 setY: 35; isZero
 >>> false
 ]]]
 
-!!!Chapter summary
+!!!Sažetak glave
 
-- A message is always sent to an object named the ''receiver'' which may be the result of other message sends.
-- Unary messages are messages that do not require any argument.\\ They are of the form of selector.
-- Binary messages are messages that involve two objects, the receiver and another object ''and'' whose selector is composed of one or more characters from the following list: ==\+==, ==\-==, ==\*==, ==\/==, ==\|==, ==\&==, ==\===, ==\>==, ==\<==, ==\~==, and ==\@==. They are of the form: receiver ""selector"" argument
-- Keyword messages are messages that involve more than one object and that contain at least one colon character (==\:==). They are of the form: receiver ""selectorWordOne:"" argumentOne ""wordTwo:"" argumentTwo
--""Rule One."" Unary messages are sent first, then binary messages, and finally keyword messages.
--""Rule Two."" Messages in parentheses are sent before any others.
--""Rule Three."" When the messages are of the same kind, the order of execution is from left to right.
-- In Pharo, traditional arithmetic operators such as \+ and \* have the same priority. ==\+== and ==\*== are just binary messages, therefore ==\*== does not have priority over ==\+==. You must use parentheses to obtain a different result.
+- Poruka se ovek šalje objektu koji se zove ''primaoc'', a koji može biti rezultat slanja druge poruke.
+- Unarne poruke su poruke koje ne zahtevaju argumente. One su oblika: selektor.
+- Binarne poruke su poruke koje uključuju dva objekta, primaoca i drugi objekat, ''i'' čiji selektor se satoji od jednog ili više karaktera sa sledeće liste: ==\+==, ==\-==, ==\*==, ==\/==, ==\|==, ==\&==, ==\===, ==\>==, ==\<==, ==\~==, and ==\@==. One su oblika: primaoc ""selektor"" argument
+- Poruke sa ključnim rečima su poruke koje uključuju više od jednog objekta i koje sadrže najmanje jednu dvotačku (==\:==). One su oblika: primaoc ""selektorKljučnaReč1:"" argument1 ""KljučnaReč2:"" argument2 ... ""KljučnaRečN:"" argumentN
+-""Pravilo 1."" Unarne poruke se šalju prve, zatim binarne poruke, i na kraju poruke sa ključnim rečima.
+-""Pravilo 2."" Poruke u zagradama se šalju pre svih drugih poruka.
+-""Pravilo 3."" Kada su poruke iste vrste (i prioriteta), redosled izvršavanja je sleva nadesno.
+- U Pharo-u, tradicionalni aritmetički operatori kao što su \+ i \* imaju jednak prioritet. ==\+== i ==\*== su samo binarne poruke i stoga ==\*== nema prioritet nad ==\+==. Morate koristiti zagrade da biste postigli ispravan rezultat.
