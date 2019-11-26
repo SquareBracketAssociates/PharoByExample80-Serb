@@ -409,7 +409,7 @@ Dekomponovanje 20 + (2 * 5)
 
 +Ekvivalentne poruke upotrebom zagrada.>file://figures/uunKeyBinPar.png|width=80+
 
-%${table:label=value|caption=Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama}$
+%%%${table:label=value|caption=Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama}$
 |!Implicitni prioritet |!Explicitni prioritet definisan zagradama
 |aPen color: Color yellow | aPen color: (Color yellow)
 | aPen go: 100 \+ 20= | Pen go: (100 \+ 20)
@@ -438,41 +438,42 @@ aDict
    put: 3
 ]]]
 
-!!!!!!Hints.
-If you have problems with these precedence rules, you may start simply by putting parentheses whenever you want to distinguish two messages having the same precedence.
+!!!!!!Smernice
+Ako imate problema sa pravilima prioriteta, možete početi jednostavno dodajući zagrade kad god želite da odvojite dve poruke koje imaju isti prioritet.
 
-The following piece of code does not require parentheses because the message send  ==x isNil== is unary hence is sent prior to the keyword message ==ifTrue:==.
+Naredni fragment koda ne zahteva zagrade jer slanje unarne poruke  ==x isNil== ima prioritet u odnosuu na slanje poruke sa ključnim rečima ==ifTrue:==.
 [[[
 (x isNil)
    ifTrue:[...]
 ]]]
 
-The following piece of code requires parentheses because the messages ==includes:== and ==ifTrue:== are both keyword messages.
+Naredni fragment koda zahteva zagrade jer su poruke ==includes:== i ==ifTrue:== obe poruke sa ključnim rečima.
 [[[
 ord := OrderedCollection new.
 (ord includes: $a)
    ifTrue:[...]
 ]]]
 
-Without parentheses the unknown message ==includes:ifTrue:== would be sent to the collection!
+Bez zagrada, nepoznata poruka ==includes:ifTrue:== bi bila poslata kolekciji ==ord==!
 
-!!!!When to use \[ \] or \( \)
+!!!!Kada koristiti \[ \] ili \( \)
 
-You may also have problems understanding when to use square brackets rather than parentheses.
-The basic principle is that you should use ==\[\]== when you do not know how many times, potentially zero, an expression should be evaluated.
-==\[expression\]== will create block closure (''i.e.'', an object) from ==expression==, which may be evaluated any number of times (possibly zero), depending on the context.
-Here note that an expression can either be a message send, a variable, a literal, an assignment or a block.
+Možete takođe naići na problem da razumete kada se koriste uglaste zagrade, a ne okrugle.
+Osnovni princip je da treba koristiti ==\[\]== kada znamo koliko puta, potencijalno nula, neki izraz treba biti evaluiran.
+==\[expression\]== ovo će kreirati zatvaranje bloka (''tj.'', objekat) od ==expression==, koji može biti evaluiran bilo koji broj puta (moguće i 0), u zavisnosti od konteksta.
+Uočimo da izraz može biti slanje poruke, promenljiva, literal, dodela ili blok.
 
-Hence the conditional branches of ==ifTrue:== or ==ifTrue:ifFalse:== require blocks.
-Following the same principle both the receiver and the argument of a ==whileTrue:== message require the use of square brackets since we do not know how many times either the receiver or the argument should be evaluated.
+Zbog ovoga, uslovno granjanja ==ifTrue:== ili ==ifTrue:ifFalse:== zahtevaju blokove.
+Prateći isti princip i primaoc i argument poruke ==whileTrue:== zahtevaju upotrebu uglastih zagrada jer ne znamo koliko puta svaki od njih treba da bude evaluiran.
 
-Parentheses, on the other hand, only affect the order of sending messages.
-So in ==(expression)==, the ==expression== will ''always'' be evaluated exactly once.
+Okrugle zagrade, s druge strane, utiču samo na redosled slanja poruka.
+Dakle u ==(expression)==, izraz ==expression== će se ''uvek'' izračunati tačno jednom.
 
 [[[
-[ x isReady ] whileTrue: [ y doSomething ]   "both the receiver and the argument must be blocks"
-4 timesRepeat: [ Beeper beep ]                   "the argument is evaluated more than once, so must be a block"
-(x isReady) ifTrue: [ y doSomething ]           "receiver is evaluated once, so is not a block"
+[ x isReady ] whileTrue: [ y doSomething ]  "i primaoc i argument moraju biti blokovi"
+4 timesRepeat: [ Beeper beep ]              "argument se izračunava više od jednom, stoga mora biti blok"
+(x isReady) ifTrue: [ y doSomething ]       "primaoc se izračunava samo jednom, stoga nije blok		
+											argument ne mora da se izvrši ni jednom, te je stoga blok"				  
 ]]]
 
 !!!Expression sequences
