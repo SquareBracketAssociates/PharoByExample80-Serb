@@ -409,6 +409,7 @@ Dekomponovanje 20 + (2 * 5)
 
 +Ekvivalentne poruke upotrebom zagrada.>file://figures/uunKeyBinPar.png|width=80+
 
+@tableBracketsAndNot
 ""Tebela: Slanja poruka i njihovi ekvivalentni sa kompletnim zagradama""
 |!Implicitni prioritet |!Explicitni prioritet definisan zagradama
 |aPen color: Color yellow | aPen color: (Color yellow)
@@ -416,18 +417,18 @@ Dekomponovanje 20 + (2 * 5)
 | aPen penSize: aPen penSize \+ 2 | aPen penSize: ((aPen penSize) \+ 2)
 | 2 factorial \+ 4 | (2 factorial) \+ 4
 
-Primetimo da se prvim pravilom koje ističe da se unarne poruke šalju pr binarnih, a binarne pre poruka s aključnim rečima izbegava potreba za eksplicitnim navođenjem zagrada oko njih. tabela iznad prikazuje slanja poruka zapisana poštujući ova pravila i ekvivalentna slanja poruka zapisana kao da ova pravila ne postoje. Oba slanja svake poruke zapisana na dva načina imaju isti rezultat i vraćaju istu vrednost.
+Primetimo da se prvim pravilom koje ističe da se unarne poruke šalju pr binarnih, a binarne pre poruka s aključnim rečima izbegava potreba za eksplicitnim navođenjem zagrada oko njih. Tabela *@tableBracketsAndNot* iznad prikazuje slanja poruka zapisana poštujući ova pravila i ekvivalentna slanja poruka zapisana kao da ova pravila ne postoje. Oba slanja svake poruke zapisana na dva načina imaju isti rezultat i vraćaju istu vrednost.
 
-!!!Hints for identifying keyword messages
+!!!Smernice za prepoznavanje poruka sa ključnim rečima
 
-Often beginners have problems understanding when they need to add parentheses.
-Let's see how keywords messages are recognized by the compiler.
+Često početnici imaju problem da razumeju kada treba dodati zagrade.
+Hajde da pogledamo kako su poruke organizovanje od strane kompajlera.
 
-!!!!Parentheses or not?
+!!!!Zagrade ili ne?
 
-The characters \[, \], \( and \) delimit distinct areas. Within such an area, a keyword message is the longest sequence of words terminated  by ==\:== that is not cut by the characters ==\.==,  or ==\;==. When the characters ==\[== and  ==\]==, ==\(== and ==\)== surround some words with colons, these words participate in the keyword message ''local'' to the area defined.
+Karakteri \[, \], \( i \) razgraničavaju različite oblasti. Unutar takvih oblasti, slanje poruke sa ključnim rečima je najduža sekvenca reči koje se završavaju sa ==\:== koja nije presečena znakovima ==\.==  ili ==\;==. Kada karakteri ==\[== i  ==\]== ili ==\(== i ==\)== okružuju reči sa dvotačkama, ove reči učestvuju u slanju poruke sa ključnim rečima koje je ''lokalno'' za definisanu oblast.
 
-In this example, there are two distinct keyword messages:  ==rotatedBy:magnify:smoothing:== and ==at:put:==.
+U sledećem primeru, imamo dve poslate poruke sa ključnim rečima:  ==rotatedBy:magnify:smoothing:== i ==at:put:==.
 
 [[[
 aDict
