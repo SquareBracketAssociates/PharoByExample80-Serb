@@ -490,20 +490,20 @@ box containsPoint: 40@50
 >>> true
 ]]]
 
-!!!Cascaded messages
+!!!Kaskadne poruke
 
-Pharo offers a way to send multiple messages to the same receiver using a semicolon (==\;==).
-This is called the cascade in Pharo jargon.
+Pharo nudi način za slanje više poruka istom primaocu bez njegovog višestrukog navođenja upotrebom (==\;==) separatora.
+Ovo se zove kaskada u Pharo žargonu.
 
-Syntactically a cascade is represented as follows:
+Sintaksno, kaskada se predstvlja na sledeći način:
 
 [[[
-anExpression msg1 ; msg2 ; msg3
+anReceiverExpression msg1 ; msg2 ; msg3
 ]]]
 
-!!!!!!Examples. 
-You can program in Pharo without using cascades. It just forces you to repeat the receiver of the message.
-The following code snippets are equivalent:
+!!!!!!Primer. 
+Možete programirati u Pharo-u bez upotrebe kaskada. To će vas samo primorati da ponavljate priomaoca poruka.
+Sledeći fragmeti koda su ekvivalentni:
 [[[
 Transcript show: 'Pharo is '.
 Transcript show: 'fun '.
@@ -517,11 +517,11 @@ Transcript
    cr
 ]]]
 
-Note that the object receiving the cascaded messages can itself be the result of a message send.
-In fact the receiver of all the cascaded messages is the receiver of the first message involved in a cascade.
-In the following example, the first cascaded message is ==setX:setY== since it is followed by a cascade.
-The receiver of the cascaded message ==setX:setY:== is the newly created point resulting from the execution of ==Point new==, and ''not'' ==Point==.
-The subsequent message ==isZero== is sent to that same receiver.
+Zapravo, primaoc svih poruka u kaskadi je primaoc prve poruke.
+Primetimo da objekat koji prima kaskadne poruke može i sam biti rezultat slanja poruke.
+U narednom primeru, prva poruka je ==setX:setY== dok iza nje sledi kaskada.
+Primaoc kaskadne poruke ==setX:setY:== je novokreirana tačka koja je rezultat izvršavanja ==Point new==, a ''ne'' ==Point==.
+Predstojeća poruka ==isZero== se šalje istom primaocu.
 
 [[[example=true
 Point new setX: 25 setY: 35; isZero
