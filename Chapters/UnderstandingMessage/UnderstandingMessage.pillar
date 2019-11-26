@@ -476,11 +476,12 @@ Dakle u ==(expression)==, izraz ==expression== će se ''uvek'' izračunati tačn
 											argument ne mora da se izvrši ni jednom, te je stoga blok"				  
 ]]]
 
-!!!Expression sequences
+!!!Sekvenca izraza
 
-Expressions (''i.e.'', message sends, assignments, ...) separated by periods are evaluated in sequence.Note that there is no period between a variable definition and the following expression.
-The value of a sequence is the value of the last expression.
-The values returned by all the expressions except the last one are ignored. Note that the period is a separator and not a terminator. Therefore a final period is optional.
+Izrazi (''tj.'', slanja poruka, dodele, ...) odvojeni tačkom se evaluiraju u sekvenci. Primetimo d anema tačke između deklaracije promenljive i narednog izraza.
+Vrednost sekvence je vrednost koja se dobija evaluacijom poslednjeg izraza u sekvenci.
+Vrednosti koje vraćaju svi izrazi izuzev poslednjeg se ignorišu na kraju. 
+Primetimo da je tačka separator, a ne završni simbol. Zato je poslednja tačka opciona.
 
 [[[
 | box |
