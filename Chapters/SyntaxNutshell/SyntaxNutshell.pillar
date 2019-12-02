@@ -1,12 +1,8 @@
-{ "title": "Syntax in a nutshell" }
+{ "title": "Sintaksa ukratko" }
 @cha:syntax
 
-Pharo adopts a syntax very close to that of its ancestor, Smalltalk. The syntax
-is designed so that program text can be read aloud as though it were a kind of
-pidgin English. The following method of the class ==Week== shows an example of
-the syntax. It checks whether ==DayNames== already contains the argument, i.e.
-if this argument represents a correct day name. If this is the case, it
-will assign it to the variable ==StartDay==.
+Pharo je usvojio sintaksu koja je veoma bliska sintaksi njenog prethodnika, Smalltalk-a. Sintaksa je dizajnirana tako da tekst može biti pročitan naglas tako da zvuči skoro kao Engleski. Sledeći metod klase ==Week== prikazuje primer sintakse. On proverava da li ==DayNames== već sadrži argument, tj.
+da li argument predstavlja ispravno ime dana. Ako je to slučaj, dodeliće ga promenljivoj ==StartDay==.
 
 [[[
 startDay: aSymbol
@@ -16,14 +12,8 @@ startDay: aSymbol
       ifFalse: [ self error: aSymbol, ' is not a recognised day name' ]
 ]]]
 
-Pharo's syntax is minimal. Essentially there is syntax only for sending messages
-(i.e. expressions). Expressions are built up from a very small number of
-primitive elements (message sends, assignments, closures, returns...). There are
-only 6 keywords, and there is no syntax for control structures or declaring new
-classes. Instead, nearly everything is achieved by sending messages to objects.
-For instance, instead of an if-then-else control structure, conditionals are
-expressed as messages (such as ==ifTrue:==) sent to Boolean objects. New
-(sub-)classes are created by sending a message to their superclass.
+Pharo sintaksa je minimalna. U suštini, postoji samo sintaksa za slanje poruka
+(tj. izrazi). Izrazi se grade od veoma malog broja primitivnih elemenata (slanje poruka, dodela, zatvaranje (''eng. closure''), vraćanje (''eng. return''),.... postoji samo 6 klučnih reči, i ne postoji sintaksa za kontrolne strukture ili declarisanje novih klasa. Umesto toga, skoro sve se postiže slanjem poruka objektima. Na primer, umesto if-then-else kontrolne strukture, uslovni izrazi su poruke (kao što je ==ifTrue:==) poslate objektima klase Boolean. Nove (pod-)klase se kreiraju slanjem poruke njihovim superklasama.
 
 !! Syntactic elements
 
