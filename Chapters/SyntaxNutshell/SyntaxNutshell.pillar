@@ -13,139 +13,95 @@ startDay: aSymbol
 ]]]
 
 Pharo sintaksa je minimalna. U suštini, postoji samo sintaksa za slanje poruka
-(tj. izrazi). Izrazi se grade od veoma malog broja primitivnih elemenata (slanje poruka, dodela, zatvaranje (''eng. closure''), vraćanje (''eng. return''),.... postoji samo 6 klučnih reči, i ne postoji sintaksa za kontrolne strukture ili declarisanje novih klasa. Umesto toga, skoro sve se postiže slanjem poruka objektima. Na primer, umesto if-then-else kontrolne strukture, uslovni izrazi su poruke (kao što je ==ifTrue:==) poslate objektima klase Boolean. Nove (pod-)klase se kreiraju slanjem poruke njihovim superklasama.
+(tj. izrazi). Izrazi se grade od veoma malog broja primitivnih elemenata (slanje poruka, dodela, zatvaranje bloka (''eng. block closure''), vraćanje (''eng. return''),.... Postoji samo 6 klučnih reči, takozvanih pseudo-promenljivih i ne postoji sintaksa za kontrolne strukture ili declarisanje novih klasa. Umesto toga, skoro sve se postiže slanjem poruka objektima. Na primer, umesto if-then-else kontrolne strukture, uslovni izrazi su poruke (kao što je ==ifTrue:==) poslate objektima klase Boolean. Nove (pod-)klase se kreiraju slanjem poruke njihovim superklasama.
 
-!! Syntactic elements
+!! Elementi sintakse
 
-Expressions are composed of the following building blocks:
+Izrazi se grade od sledećih  elemenata:
 
-# The six reserved keywords, or ''pseudo-variables'': ==self==, ==super==, ==nil==, ==true==, ==false==, and ==thisContext==
-# Constant expressions for ''literal'' objects including numbers, characters, strings, symbols and arrays
-# Variable declarations
-# Assignments
-# Block closures
-# Messages
+# Šest ''pseudo-promenljivih'': ==self==, ==super==, ==nil==, ==true==, ==false==, i ==thisContext==
+# Konstantni izrazi za ''literale'', konkretne objekte, uključujući brojeve, karaktere, stringove, simbole i nizove
+# Deklaracije promenljivih
+# Dodele
+# Zatvaranja blokova
+# Poruke
+# Vraćanje rezultata iz metoda
 
-We can see examples of the various syntactic elements in the Table below.
+Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
-|!Syntax |!What it represents
-|==startPoint== | a variable name
-|==Transcript== | a global variable name
-|self | pseudo-variable
-|==1 ==| decimal integer
-|==2r101== | binary integer
-|==1.5== | floating point number
-|==2.4e7== | exponential notation
-|==$a== | the character =='a'==
-|=='Hello'== | the string =='Hello'==
-|==#Hello== | the symbol ==#Hello==
-|==#(1 2 3)== | a literal array
-| =={ 1 . 2 . 1 + 2 }== | a dynamic array
-|=="a comment"== | a comment
-|==\| x y \|==| declaration of variables ==x== and ==y==
-|==x := 1==| assign 1 to ==x==
-|==[:x \| x + 2 ]==| a block that evaluates to ==x + 2==
-|==<primitive: 1>==| virtual machine primitive or annotation
-|==3 factorial==| unary message ==factorial==
-|==3 + 4==| binary message ==+==
-|==2 raisedTo: 6 modulo: 10==| keyword message ==raisedTo:modulo:==
-|==^ true==| return the value true
-|==x := 2 . x := x + x==| expression separator (==.==)
-|==Transcript show: 'hello'; cr==| message cascade (==;==)
+|!Sintaksni izraz |!Šta predstavlja
+|==startPoint== | ime promenljive
+|==Transcript== | ime globalne promenljive
+|self | pseudo-promenljiva
+|==1 ==| decimali ceo broj
+|==2r101== | binarni ceo broj
+|==1.5== | broj sa plivajućom tačkom
+|==2.4e7== | broj u exponencialnoj notaciji
+|==$a== | karakter =='a'==
+|=='Hello'== | string =='Hello'==
+|==#Hello== | simbol ==#Hello==
+|==#(1 2 3)== | literal niz
+| =={ 1 . 2 . 1 + 2 }== | dinamički niz
+|=="a comment"== | komentar
+|==\| x y \|==| deklaracija promenljivih ==x== i ==y==
+|==x := 1==| dodela: 1 dodeljuje promenljivoj ==x==
+|==[:x \| x + 2 ]==| blok čija je vrednost ==x + 2==
+|==<primitive: 1>==| primitivne operacije vitruelne mašine ili anotacije
+|==3 factorial==| unarna poruka ==factorial==
+|==3 + 4==| binarna poruka ==+==
+|==2 raisedTo: 6 modulo: 10==| poruka sa ključnim rečima ==raisedTo:modulo:==
+|==^ true==| vraća vrednost true
+|==x := 2 . x := x + x==| dva izaza razdvojena separatorom (==.==)
+|==Transcript show: 'hello'; cr==| dve kaskadne poruke razdvojene separatorom (==;==)
 
-""Local variables."" ==startPoint== is a variable name, or identifier. By
-convention, identifiers are composed of words in "camelCase" (i.e., each word
-except the first starting with an upper case letter). The first letter of an
-instance variable, method or block argument, or temporary variable must be lower
-case. This indicates to the reader that the variable has a private scope.
+""Localne promenljive."" ==startPoint== je ime promenljive, ili identifikator. Prema konvenciji, identifikatori su sastavljeni od reči  u "camelCase" formatu (tj. svaka reč izuzev prve počinje velikim slovom). Prvo slovo promenljive instance, parametra metoda ili bloka, ili privremene promenljive mora biti malo slovo. Ovo ukazuje čitaocu da promenjlive imaju privatan opseg vidljivosti.
 
-""Shared variables."" Identifiers that start with upper case letters are global
-variables, class variables, pool dictionaries or class names. ==Transcript== is
-a global variable, an instance of the class ==ThreadSafeTranscript==.
+""Deljene promenljive."" Identifikatori koji počinju velikim slovom letters su globalne promenljive, promenljive klase, objedinjeni rečnik ili imena klasa. ==Transcript== je globalna promenljiva, instanca klase ==ThreadSafeTranscript==.
 
-""The receiver."" ==self== is a keyword that refers to the object inside which
-the current method is executing. We call it "the receiver" because this object
-has received the message that caused the method to execute. ==self== is called a
-"pseudo-variable" since we cannot assign to it.
+""Aktuelni objekat."" ==self== je pseudo-promenljiva koja se odnosi na tekući objekat i daje nam način da mu pošaljemo poruku. Kako je tekući objekat onaj unutar kog se trenutni metod izvršava, možemo ga zvati i "primaoc" jer će ovaj objekat primiti poruku što će dovesti do izvršavanja metoda. Konačno, ==self== se zove "pseudo-promenljiva" jer mu ne možemo dodeliti vrednost.
 
-""Integers."" In addition to ordinary decimal integers like 42, Pharo also
-provides a radix notation. ==2r101== is 101 in radix 2 (i.e., binary), which is
-equal to decimal 5.
+""Celi brojevi"" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj., binarno), što je jednako decimalnom 5.
 
-""Floating point numbers."" can be specified with their base-ten exponent:
-==2.4e7== is ==2.4 X 10^7==.
+""Brojevi sa plivajućom tačkom."" mogu biti zapisani eksponencijalno sa osnovom 10: ==2.4e7== je ==2.4 X 10^7==.
 
-""Characters."" A dollar sign introduces a literal character: ==$a== is the
-literal for the character =='a'==. Instances of non-printing characters can be
-obtained by sending appropriately named messages to the ==Character== class,
-such as ==Character space== and ==Character tab==.
+""Karakteri."" Znak za dolar, $, uvodi literal karakter: ==$a== je literal za karakter =='a'==. Instance specijalnih karaktera koji se ne štampaju mogu biti pribavljene slanjem odgovarajućih, prigodno imenovanih poruka, kao što su ==Character space== i ==Character tab==, klasi ==Character==.
 
-""Strings."" Single quotes ==' '== are used to define a literal string. If you
-want a string with a single quote inside, just double the quote, as in
+""Stringovi."" Jednostruki navodnici ==' '== se koriste za definisanje string literala. Ao želite string koji sadrži jednostruke navodnike u sebi, samo duplirajte navodnik, kao u
 =='G'\'day'==.
 
-""Symbols."" Symbols are like Strings, in that they contain a sequence of
-characters. However, unlike a string, a literal symbol is guaranteed to be
-globally unique. There is only one ==Symbol== object ==#Hello== but there may be
-multiple ==String== objects with the value =='Hello'==.
+""Simboli."" Simboli su kao Stringovi, u smislu da predstavljaju sekvencu karaktera. HIpak, za razliku od stringova, simbol literali su garantovano jedinstveni na globalnom nivou. Postoji samo jedan objekat  ==#Hello== klase ==Symbol==, dok može postojati više objekata klase ==String== koji imaju vrednost =='Hello'==.
 
-""Compile-time arrays."" are defined by ==#( )==, surrounding space-separated
-literals. Everything within the parentheses must be a compile-time constant. For
-example, ==#(27 (true false) abc)== is a literal array of three elements: the
-integer 27, the compile-time array containing the two booleans, and the symbol
-==#abc==. (Note that this is the same as ==#(27 #(true false) #abc)==.)
+""Nizovi literali u vreme kompajliranja."" Definišu se sa ==#( )== unutar čega su navedeni literali razdvojeni razmakom. Sve unutar zagrada mora biti konstanta u vreme kompajliranja. Na primer, ==#(27 (true false) abc)== je niz literal sa tri elementa: ceo broj 27, literalni niz koji sadrži dve pseudo-promenljive, nepromenljive objekte klase Boolean, i simbol ==#abc==. Primetimo da je ovo isto kao ==#(27 #(true false) #abc)==.
 
-""Run-time arrays."" Curly braces =={ }== define a (dynamic) array at run-time.
-Elements are expressions separated by periods. So =={ 1. 2. 1 + 2 }== defines an
-array with elements 1, 2, and the result of evaluating ==1+2==.
+""Dinamički nizovi u vreme izvršavanja."" Vitičaste zagrade =={ }== definišu dinamičke nizove čiji se elementi su izrazi odvojeni tačkom i koji se izračunavaju u vreme izvršavanja. Dakle,  =={ 1. 2. 1 + 2 }== definiše niz čiji su elementi 1, 2, i rezultat izračunavanja ==1+2==.
 
-""Comments."" are enclosed in double quotes \" \". "hello" is a comment, not a
-string, and is ignored by the Pharo compiler. Comments may span multiple lines.
+""Komentari."" Navode se unutar dvostrukih navodnika \" \". "Hello" je komentar,a ne String, i ignoriše se od strane Pharo compajlera. Komentari se mogu prostirati preko više linija.
 
-""Local variable definitions."" Vertical bars ==| |== enclose the declaration of
-one or more local variables in a method (and also in a block).
+""Definicije lokalnih promenljivih."" Vertikalne crte ==| |== ograničavaju definiciju jedne ili više lokalnih promenljivih pre početka tela metoda ili bloka.
 
-""Assignment."" ==:= == assigns an object to a variable.
+""Dodela."" ==:= == dodeljuje objekat promenljivoj.
 
-""Blocks."" Square brackets ==[ ]== define a block, also known as a block
-closure or a lexical closure, which is a first-class object representing a
-function. As we shall see, blocks may take arguments (==[:i | ...]==) and can
-have local variables.
+""Blokovi."" Unutar uglastih zagrada ==[ ]== definišemo blokove, koji su takođe poznati kao zatvaranje bloka ''eng. block
+closure'' ili leksičko zatvaranje ''eng. lexical closure''. To su objekti prve klase koji predstavljaju funkcije. Kao što ćemo videti, blokovi mogu imati argumente (==[:i | ...]==) i lokalne promenljive (==[| x | ...]==) .
 
-""Primitives."" ==< primitive: ... >== denotes an invocation of a virtual
-machine primitive. For example, ==< primitive: 1 >== is the VM primitive for
-==SmallInteger==. Any code following the primitive is executed only if the
-primitive fails. The same syntax is also used for method annotations (pragmas).
+""Primitivne operacije."" ==< primitive: ... >== označava  poziv primitivne operacije virtuelne mašine (VM). Na primer, ==< primitive: 1 >== je primitivna operacija VM za ==SmallInteger==. Bilo koji kod koji sledi iza primitivne operacije izvršava se samo ako primitivna operacija ne uspe. Ista sintaksa poruke unutar ==< >== se takođe koristi za druge vrste anotacije metoda (''eng. pragma'').
 
-""Unary messages."" These consist of a single word (like ==factorial==) sent to
-a receiver (like 3). In ==3 factorial==, 3 is the receiver, and ==factorial== is
-the message selector.
+""Unarne poruke."" One se satoje od samo jedne reči (kao što je ==factorial==) poslate primaocu (kao što je 3). U ==3 factorial==, 3 je primaoc, a ==factorial== je selektor poruke.
 
-""Binary messages."" These are message with an argument and whose selector looks
-like mathematical expressions (for example: ==\+==) sent to a receiver, and
-taking a single argument. In ==3 + 4==, the receiver is 3, the message selector
-is ==\+==, and the argument is 4.
+""Binarne poruke."" To su poruke koje se šalju primaocu sa samo jednim argumentom i čiji selektor izgleda kao matematički operator (na primer: ==\+==). U ==3 + 4==, primaoc je 3, selector poruke je ==\+==, a argument je 4.
 
-""Keyword messages."" They consist of multiple keywords (like ==raisedTo:
-modulo:==), each ending with a colon and taking a single argument. In the
-expression ==2 raisedTo: 6 modulo: 10==, the message selector
-==raisedTo:modulo:== takes the two arguments 6 and 10, one following each colon.
-We send the message to the receiver 2.
+""Poruke sa ključnim rečima."" Njihov selektor se sastoji od jedne ili više ključnih reči (npr. ==raisedTo:
+modulo:==), od kojih se svaka završava s advotačkom i uzima tačno argument. U izrazu ==2 raisedTo: 6 modulo: 10==, selektor poruke
+==raisedTo:modulo:== prima dva argumenta, 6 i 10, od kojih se svaki navodi iza odgovarajuće dvotačke. Ova poruka se šalje primaocu 2.
 
-""Method return."" ==^== is used to ''return'' a value from a method.
+""Vraćanje vrednosti izračunavanja metoda."" ==^== se koristi da ''vrati'' vrednost iz metoda.
 
-""Sequences of statements."" A period or full-stop (==.==) is the statement
-separator. Putting a period between two expressions turns them into independent
-statements.
+""Sekvenca naredbi."" Tačka (==.==) je separator naredbi. Stavljanjem tačke izmedju dva izraza učiniće ih nezavisnim naredbama.
 
-""Cascades."" Semicolons ( ==;== ) can be used to send a cascade of messages to
-a single receiver. In ==Transcript show: 'hello'; cr== we first send the keyword
-message ==show: 'hello'== to the receiver ==Transcript==, and then we send the
-unary message ==cr== to the same receiver.
+""Kaskade."" Tačka-zarez ( ==;== ) se može koristiti da se pošalje kaskada poruka jednom primaocu. U  ==Transcript show: 'hello'; cr== prvo šaljemo poruku sa ključnim rečima
+ ==show: 'hello'== primaocu ==Transcript==, a zatim šaljemo unarnu poruku ==cr== istom primaocu.
 
-The classes ==Number==, ==Character==, ==String== and ==Boolean== are described
-in more detail in Chapter
-*: Basic Classes>../BasicClasses/BasicClasses.pier@cha:basicClasses*.
+Vrste i načini slanja poruka su detaljnije objašnjeni u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*, a Klase ==Number==, ==Character==, ==String== i ==Boolean== u Glavi *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses*.
 
 !!Pseudo-variables
 
