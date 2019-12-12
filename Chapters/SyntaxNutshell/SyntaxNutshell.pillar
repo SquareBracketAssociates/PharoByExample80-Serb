@@ -1,4 +1,4 @@
-{ "title": "Sintaksa ukratko" }
+!!Sintaksa ukratko
 @cha:syntax
 
 Pharo je usvojio sintaksu koja je veoma bliska sintaksi njenog prethodnika, Smalltalk-a. Sintaksa je dizajnirana tako da tekst može biti pročitan naglas tako da zvuči skoro kao Engleski. Sledeći metod klase ==Week== prikazuje primer sintakse. On proverava da li ==DayNames== već sadrži argument, tj.
