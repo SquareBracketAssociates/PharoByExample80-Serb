@@ -108,11 +108,11 @@ Osnovne klase ==Number==, ==Character==, ==String== i ==Boolean== opisane su u G
 U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==nil==, ==true==, ==false==, ==self==, ==super==, and ==thisContext==. Zovemo ih pseudo-promenljivim jer su one predefinisane i ne može in se dodeliti vrednost.
 ==true==, ==false==, i ==nil== su konstante, dok se vrednost ==self==, ==super==, i ==thisContext== menja dinamički u toku izvršavanja programa.
 
-- ==true== i ==false== su jedinstvene instance klasa  ==True== i ==False== koje su podklase klase Boolean. Pogledati Glavu *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses* za više detalja.
+- ==true== i ==false== su jedinstvene instance klasa  ==True== i ==False== koje su podklase klase ==Boolean==. Pogledati Glavu *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses* za više detalja.
 
 - ==self== se uvek referencira na primaoca poruke i označava objekat u okviru kog će se odgovarajući metod izvršiti. Zbog toga se vrednost pseudo-promenljive ==self== dinamički menja u toku izvršavanja programa, ali joj ne može biti dodeljena vrednost u kodu.
 
-- ==super== se takođe referencira na primaoca tekuće poruke, ali kada se pošalje poruka primaocu ==super==, odgovarajući metod koji će se izvršiti se traži počevši od super klase klase koja sadrži metod u kom se šalje poruka primaocu ==super==. za više detalja pogledajte Glavu *: Pharo Objektni Model>../PharoObjectModel/PharoObjectModel.pier@cha:model*.
+- ==super== se takođe referencira na primaoca tekuće poruke, ali kada se pošalje poruka primaocu ==super==, odgovarajući metod koji će se izvršiti se traži počevši od super klase klase koja sadrži metod u kom se šalje poruka primaocu ==super==. Za više detalja pogledajte Glavu *: Pharo Objektni Model>../PharoObjectModel/PharoObjectModel.pier@cha:model*.
 
 - ==nil== is the undefined object. It is the unique instance of the class ==UndefinedObject==. Instance variables, class variables and local variables are initialized to ==nil==.
 
@@ -121,7 +121,7 @@ U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==ni
 !!!Message sends
 
 Kao što smo videli, postoje tri vrste poruka u Pharo-u sa predefinisanim prioritetom. Ova razlika je napravljena da se smanji broj obaveznih zagrada.
-Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja, dok se dataljni opis može naći u Glavi *: Razumevanje sintakse poruka>>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
+Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja, dok se dataljni opis može naći u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
 
 
 #''Unarne poruke'' ne primaju argumente. ==1 factorial== šalje poruku ==factorial== objektu 1. Selektor unarne poruke sastoji se od alfanumeričkih karaktera i počinje malim slovom.
