@@ -60,7 +60,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
 ""Aktuelni objekat."" ==self== je pseudo-promenljiva koja se odnosi na tekući objekat i daje nam način da mu pošaljemo poruku. Kako je tekući objekat onaj unutar kog se trenutni metod izvršava, možemo ga zvati i ''primaoc'' jer će ovaj objekat primiti poruku što će dovesti do izvršavanja metoda. Konačno, ==self== se zove ''pseudo-promenljiva'' jer mu ne možemo dodeliti vrednost.
 
-""Celi brojevi."" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj., binarno), što je jednako decimalnom 5.
+""Celi brojevi."" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj. binarno), što je jednako decimalnom 5.
 
 ""Brojevi sa plivajućom tačkom."" mogu biti zapisani eksponencijalno sa osnovom 10: ==2.4e7== je ==2.4 X 10^7==.
 
@@ -73,11 +73,11 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
 ""Nizovi literali u vreme kompajliranja."" Definišu se sa ==#( )== unutar čega su navedeni literali razdvojeni razmakom. Sve unutar zagrada mora biti konstanta u vreme kompajliranja. Na primer, ==#(27 (true false) abc)== je niz literal sa tri elementa: ceo broj 27, literalni niz koji sadrži dve pseudo-promenljive, nepromenljive objekte klase Boolean, i simbol ==#abc==. Primetimo da je ovo isto kao ==#(27 #(true false) #abc)==.
 
-""Dinamički nizovi u vreme izvršavanja."" Vitičaste zagrade =={ }== definišu dinamičke nizove čiji se elementi su izrazi odvojeni tačkom i koji se izračunavaju u vreme izvršavanja. Dakle,  =={ 1. 2. 1 + 2 }== definiše niz čiji su elementi 1, 2, i rezultat izračunavanja ==1+2==.
+""Dinamički nizovi u vreme izvršavanja."" Vitičaste zagrade =={ }== definišu dinamičke nizove čiji se elementi su izrazi odvojeni tačkom i koji se izračunavaju u vreme izvršavanja. Dakle,  =={ 1. 2. 1 + 2 }== definiše niz čiji su elementi 1, 2, i rezultat izračunavanja ==1 + 2==.
 
 ""Komentari."" Navode se unutar dvostrukih navodnika \" \". =="Hello"== je komentar,a ne String, i ignoriše se od strane Pharo compajlera. Komentari se mogu prostirati preko više linija.
 
-""Definicije lokalnih promenljivih."" Vertikalne crte ==| |== ograničavaju definiciju jedne ili više lokalnih promenljivih pre početka tela metoda ili bloka.
+""Definicije lokalnih promenljivih."" Vertikalne crte ==\| \|== ograničavaju definiciju jedne ili više lokalnih promenljivih pre početka tela metoda ili bloka.
 
 ""Dodela."" ==:= == dodeljuje objekat promenljivoj.
 
@@ -124,14 +124,15 @@ Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja
 
 
 #''Unarne poruke'' ne primaju argumente. ==1 factorial== šalje poruku ==factorial== objektu 1. Selektor unarne poruke sastoji se od alfanumeričkih karaktera i počinje malim slovom.
-#''Binarne poruke'' primaju tačno jedan argument. ==1 \+ 2== šalje poruku ==\+== sa argumentom 2 objektu 1. Selektori binarnih poruka sastoje se od jednog ili više karaktera iz sledećeg skupa: ==+ - / \ * ~ < > = @ % | & ? ,==
+#''Binarne poruke'' primaju tačno jedan argument. ==1 \+ 2== šalje poruku ==\+== sa argumentom 2 objektu 1. Selektori binarnih poruka sastoje se od jednog ili više karaktera iz sledećeg skupa: == + - / \ * ~ < > = @ % | & ? , ==
 #''Poruke sa ključnim rečima'' uzimaju proizvoljan broj argumenata. ==2 raisedTo: 6 modulo: 10== šalje poruku čiji je selektor ==raisedTo:modulo:==, a argumenti 6 i 10, objektu 2. Selektori poruka sa ključnim rečima sastoje se od niza alfanumeričkih reči (ključne reči) od kojih svaka počinje malim slovom i završava se dvotačkom.
 
 
 !!!!Prioritet poruka.
 Unarne poruke imaju najviši prioritet, zatim binarne poruke, i konačno poruke sa ključnim rečima.
 
-Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će nam dati rezultat 6. Zatim šaljemo poruku ==+ 6== primaocu 1 što daje rezultat 7, i na kraju šaljemo poruku ==raisedTo: 7== objektu 2. 
+Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će nam dati rezultat 6. Zatim šaljemo poruku ==\+ 6== primaocu 1 što daje rezultat 7, i na kraju šaljemo poruku ==raisedTo: 7== objektu 2. 
+
 [[[testcase=true
 2 raisedTo: 1 + 3 factorial
 >>> 128
@@ -139,12 +140,14 @@ Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će n
 
 
 Ako se izuzme prioritet, poruke iste vrste izvršavaju se strogo sleva na desno. Stoga, kako imamo dve binarne poruke, naredni primer će vratiti 9, a ne 7.
+
 [[[testcase=true
 1 + 2 * 3
 >>> 9
 ]]]
 
 Moraju se koristiti zagrade da se izmeni redosled izračunavanja kao što sledi.
+
 [[[testcase=true
 1 + (2 * 3)
 >>> 7
