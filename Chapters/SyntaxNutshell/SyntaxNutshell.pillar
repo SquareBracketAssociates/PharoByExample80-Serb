@@ -54,11 +54,11 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 |==x := 2 . x := x + x==| dva izaza razdvojena separatorom (==.==)
 |==Transcript show: 'hello'; cr==| dve kaskadne poruke razdvojene separatorom (==;==)
 
-""Localne promenljive."" ==startPoint== je ime promenljive, ili identifikator. Prema konvenciji, identifikatori su sastavljeni od reči  u "camelCase" formatu (tj. svaka reč izuzev prve počinje velikim slovom). Prvo slovo promenljive instance, parametra metoda ili bloka, ili privremene promenljive mora biti malo slovo. Ovo ukazuje čitaocu da promenjlive imaju privatan opseg vidljivosti.
+""Localne promenljive."" ==startPoint== je ime promenljive, ili identifikator. Prema konvenciji, identifikatori su sastavljeni od reči  u ''camelCase'' formatu (tj. svaka reč izuzev prve počinje velikim slovom). Prvo slovo promenljive instance, parametra metoda ili bloka, ili privremene promenljive mora biti malo slovo. Ovo ukazuje čitaocu da promenjlive imaju privatan opseg vidljivosti.
 
 ""Deljene promenljive."" Identifikatori koji počinju velikim slovom letters su globalne promenljive, promenljive klase, objedinjeni rečnik ili imena klasa. ==Transcript== je globalna promenljiva, instanca klase ==ThreadSafeTranscript==.
 
-""Aktuelni objekat."" ==self== je pseudo-promenljiva koja se odnosi na tekući objekat i daje nam način da mu pošaljemo poruku. Kako je tekući objekat onaj unutar kog se trenutni metod izvršava, možemo ga zvati i "primaoc" jer će ovaj objekat primiti poruku što će dovesti do izvršavanja metoda. Konačno, ==self== se zove "pseudo-promenljiva" jer mu ne možemo dodeliti vrednost.
+""Aktuelni objekat."" ==self== je pseudo-promenljiva koja se odnosi na tekući objekat i daje nam način da mu pošaljemo poruku. Kako je tekući objekat onaj unutar kog se trenutni metod izvršava, možemo ga zvati i ''primaoc'' jer će ovaj objekat primiti poruku što će dovesti do izvršavanja metoda. Konačno, ==self== se zove ''pseudo-promenljiva'' jer mu ne možemo dodeliti vrednost.
 
 ""Celi brojevi"" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj., binarno), što je jednako decimalnom 5.
 
