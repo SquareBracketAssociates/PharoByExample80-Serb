@@ -96,12 +96,12 @@ modulo:==), od kojih se svaka završava s advotačkom i uzima tačno argument. U
 
 ""Vraćanje vrednosti izračunavanja metoda."" ==^== se koristi da ''vrati'' vrednost iz metoda.
 
-""Sekvenca naredbi."" Tačka (==.==) je separator naredbi. Stavljanjem tačke izmedju dva izraza učiniće ih nezavisnim naredbama.
+""Sekvenca naredbi."" Tačka (==.==) je separator naredbi. Stavljanjem tačke izmedju dva izraza učiniće ih nezavisnim naredbama kao u ==x := 2 . x := x + x== gde u prvom izrazu promenljivoj ==x== dodeljujemo vrednost ==2==, a zatim njenu vrednost dupliramo dodeljujući joj vrednost zbira =x+x=.
 
-""Kaskade."" Tačka-zarez ( ==;== ) se može koristiti da se pošalje kaskada poruka jednom primaocu. U  ==Transcript show: 'hello'; cr== prvo šaljemo poruku sa ključnim rečima
- ==show: 'hello'== primaocu ==Transcript==, a zatim šaljemo unarnu poruku ==cr== istom primaocu.
+""Kaskade."" Tačka-zarez ( ==;== ) se može koristiti da se pošalje kaskada poruka jednom primaocu. U  ==stream nextPutAll: ’Hello World’; close.== prvo primaocu ==stream== šaljemo poruku sa ključnim rečima
+ ==nextPutAll: ’Hello World’'== , a zatim istom primaocu šaljemo unarnu poruku ==close==.
 
-Vrste i načini slanja poruka su detaljnije objašnjeni u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*, a Klase ==Number==, ==Character==, ==String== i ==Boolean== u Glavi *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses*.
+Klase ==Number==, ==Character==, ==String== i ==Boolean== u Glavi *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses*.
 
 !!!Pseudo-variables
 
@@ -123,28 +123,14 @@ pseudo-variables because they are predefined and cannot be assigned to.
 
 !!!Message sends
 
-There are three kinds of messages in Pharo. This distinction has been made to
-reduce the number of mandatory parentheses.
+There are three kinds of messages in Pharo. This distinction has been made to reduce the number of mandatory parentheses.
 
-#''Unary'' messages take no argument. ==1 factorial== sends the message ==factorial== to the object 1.
-#''Binary'' messages take exactly one argument. ==1 \+ 2== sends the message ==\+== with argument 2 to the object 1.
-#''Keyword'' messages take an arbitrary number of arguments. ==2 raisedTo: 6 modulo: 10== sends the message consisting of the message selector ==raisedTo:modulo:== and the arguments 6 and 10 to the object 2.
-
-!!!!!Unary messages.
-Unary message selectors consist of alphanumeric characters, and start with a
+#''Unary'' messages take no argument. ==1 factorial== sends the message ==factorial== to the object 1. Unary message selectors consist of alphanumeric characters, and start with a
 lower case letter.
+#''Binary'' messages take exactly one argument. ==1 \+ 2== sends the message ==\+== with argument 2 to the object 1. Binary message selectors consist of one or more characters from the following
+set: ==+ - / \ * ~ < > = @ % | & ? ,==
+#''Keyword'' messages take an arbitrary number of arguments. ==2 raisedTo: 6 modulo: 10== sends the message consisting of the message selector ==raisedTo:modulo:== and the arguments 6 and 10 to the object 2. Keyword message selectors consist of a series of alphanumeric keywords, where each keyword starts with a lower-case letter and ends with a colon.
 
-!!!!!Binary messages.
-Binary message selectors consist of one or more characters from the following
-set:
-
-[[[
-+ - / \ * ~ < > = @ % | & ? ,
-]]]
-
-!!!!!Keyword message selectors.
-Keyword message selectors consist of a series of alphanumeric keywords, where
-each keyword starts with a lower-case letter and ends with a colon.
 
 !!!!!Message precedence.
 Unary messages have the highest precedence, then binary messages, and finally
@@ -199,6 +185,8 @@ Transcript
 ]]]
 
 This has precisely the same effect as the previous example.
+
+Vrste i načini slanja poruka su detaljnije objašnjeni u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
 
 !!!Method syntax
 
