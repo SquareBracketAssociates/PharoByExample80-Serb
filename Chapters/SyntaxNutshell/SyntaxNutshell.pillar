@@ -13,7 +13,7 @@ startDay: aSymbol
 ]]]
 
 Pharo sintaksa je minimalna. U suštini, postoji samo sintaksa za slanje poruka
-(tj. izrazi). Izrazi se grade od veoma malog broja primitivnih elemenata (slanje poruka, dodela, zatvaranje bloka (''eng. block closure''), vraćanje (''eng. return''),.... Postoji samo 6 klučnih reči, takozvanih pseudo-promenljivih i ne postoji sintaksa za kontrolne strukture ili declarisanje novih klasa. Umesto toga, skoro sve se postiže slanjem poruka objektima. Na primer, umesto if-then-else kontrolne strukture, uslovni izrazi su poruke (kao što je ==ifTrue:==) poslate objektima klase Boolean. Nove (pod-)klase se kreiraju slanjem poruke njihovim superklasama.
+(tj. izrazi). Izrazi se grade od veoma malog broja primitivnih elemenata (slanje poruka, dodela, zatvaranje bloka (''eng. block closure''), vraćanje (''eng. return''),... Postoji samo 6 klučnih reči, takozvanih pseudo-promenljivih i ne postoji sintaksa za kontrolne strukture ili declarisanje novih klasa. Umesto toga, skoro sve se postiže slanjem poruka objektima. Na primer, umesto if-then-else kontrolne strukture, uslovni izrazi su poruke (kao što je ==ifTrue:==) poslate objektima klase Boolean. Nove (pod-)klase se kreiraju slanjem poruke njihovim superklasama.
 
 !!!Elementi sintakse
 
@@ -41,7 +41,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 |=='Hello'== | string =='Hello'==
 |==#Hello== | simbol ==#Hello==
 |==#(1 2 3)== | literal niz
-| =={ 1 . 2 . 1 + 2 }== | dinamički niz
+|=={ 1 . 2 . 1 + 2 }== | dinamički niz
 |=="a comment"== | komentar
 |==\| x y \|==| deklaracija promenljivih ==x== i ==y==
 |==x := 1==| dodela: 1 dodeljuje promenljivoj ==x==
@@ -60,7 +60,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
 ""Aktuelni objekat."" ==self== je pseudo-promenljiva koja se odnosi na tekući objekat i daje nam način da mu pošaljemo poruku. Kako je tekući objekat onaj unutar kog se trenutni metod izvršava, možemo ga zvati i ''primaoc'' jer će ovaj objekat primiti poruku što će dovesti do izvršavanja metoda. Konačno, ==self== se zove ''pseudo-promenljiva'' jer mu ne možemo dodeliti vrednost.
 
-""Celi brojevi"" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj., binarno), što je jednako decimalnom 5.
+""Celi brojevi."" ''(eng. Integers.)'' Pored uobičajenih decimalnih celih brojeva kao što je 42, u Pharo-u možemo koristiti i ''radix'' notaciju. ==2r101== je 101 sa osnovom 2 (tj., binarno), što je jednako decimalnom 5.
 
 ""Brojevi sa plivajućom tačkom."" mogu biti zapisani eksponencijalno sa osnovom 10: ==2.4e7== je ==2.4 X 10^7==.
 
@@ -75,7 +75,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
 ""Dinamički nizovi u vreme izvršavanja."" Vitičaste zagrade =={ }== definišu dinamičke nizove čiji se elementi su izrazi odvojeni tačkom i koji se izračunavaju u vreme izvršavanja. Dakle,  =={ 1. 2. 1 + 2 }== definiše niz čiji su elementi 1, 2, i rezultat izračunavanja ==1+2==.
 
-""Komentari."" Navode se unutar dvostrukih navodnika \" \". "Hello" je komentar,a ne String, i ignoriše se od strane Pharo compajlera. Komentari se mogu prostirati preko više linija.
+""Komentari."" Navode se unutar dvostrukih navodnika \" \". =="Hello"== je komentar,a ne String, i ignoriše se od strane Pharo compajlera. Komentari se mogu prostirati preko više linija.
 
 ""Definicije lokalnih promenljivih."" Vertikalne crte ==| |== ograničavaju definiciju jedne ili više lokalnih promenljivih pre početka tela metoda ili bloka.
 
