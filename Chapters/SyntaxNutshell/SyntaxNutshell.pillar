@@ -106,7 +106,7 @@ Osnovne klase ==Number==, ==Character==, ==String== i ==Boolean== opisane su u G
 !!!Pseudo-promenljive
 
 U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==nil==, ==true==, ==false==, ==self==, ==super==, and ==thisContext==. Zovemo ih pseudo-promenljivim jer su one predefinisane i ne može in se dodeliti vrednost.
-==true==, ==false==, i ==nil== su konstante, do se vrednost ==self==, ==super==, i ==thisContext== menja dinamički u toku izvršavanja programa.
+==true==, ==false==, i ==nil== su konstante, dok se vrednost ==self==, ==super==, i ==thisContext== menja dinamički u toku izvršavanja programa.
 
 - ==true== i ==false== su jedinstvene instance klasa  ==True== i ==False== koje su podklase klase Boolean. Pogledati Glavu *: Osnovne klase>../BasicClasses/BasicClasses.pier@cha:basicClasses* za više detalja.
 
@@ -121,7 +121,7 @@ U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==ni
 !!!Message sends
 
 Kao što smo videli, postoje tri vrste poruka u Pharo-u sa predefinisanim prioritetom. Ova razlika je napravljena da se smanji broj obaveznih zagrada.
-Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja, dok se dataljni opis može naći u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
+Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja, dok se dataljni opis može naći u Glavi *: Razumevanje sintakse poruka>>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
 
 
 #''Unarne poruke'' ne primaju argumente. ==1 factorial== šalje poruku ==factorial== objektu 1. Selektor unarne poruke sastoji se od alfanumeričkih karaktera i počinje malim slovom.
@@ -140,14 +140,12 @@ Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će n
 
 
 Ako se izuzme prioritet, poruke iste vrste izvršavaju se strogo sleva na desno. Stoga, kako imamo dve binarne poruke, naredni primer će vratiti 9, a ne 7.
-
 [[[testcase=true
 1 + 2 * 3
 >>> 9
 ]]]
 
 Moraju se koristiti zagrade da se izmeni redosled izračunavanja kao što sledi.
-
 [[[testcase=true
 1 + (2 * 3)
 >>> 7
@@ -178,7 +176,7 @@ Ova kaskada ima potpuno isti efekat kao sekvenca u prethodnom primeru.
 
 !!!Sintaksa metoda
 
-Dok se izrazi mogu evaluirati bilo gde u Pharo okruženju (na primer, u plejgraund (''eng. playground'', u debageru ''eng. debugger'', ili u brauzeru ''eng. browser''), metodi se obično definišu u prozoru brauzera ili u debageru. Metodi se, takođe, mogu učitati sa eksternog medijuma, ali ovo nije uobičajeni način programiranja u Pharo-u.
+Dok se izrazi mogu evaluirati bilo gde u Pharo okruženju (na primer, u plejgraund (''eng. playground) u debageru (''eng. debugger''), ili u brauzeru (''eng. browser''), metodi se obično definišu u prozoru brauzera ili u debageru. Metodi se, takođe, mogu učitati sa eksternog medijuma, ali ovo nije uobičajeni način programiranja u Pharo-u.
 
 Programi se razvijaju metod po metod, u kontekstu date klase. Klasa se definiše slanjem poruke postojećoj klasi, tražeći od nje da kreira svoju podklasu, tako da nema specijalne sintakse neophodne za kreiranje klasa.
 
@@ -200,13 +198,13 @@ Sintaksno, metod se sastoji od:
 #paterna metoda, koji sadrži ime (==lineCount==) i proizvoljne parametre (nema parametara u ovom primeru),
 #comentare koji se mogu pojaviti bilo gde, ali prema konvenciji navodi se komentar na vrhu metoda da se objasni namena metoda,
 #deklaracije lokalnih promenljivih (==cr== i  ==count==), i
-#proizvoljan broj izraza razdvojenih tačkom (ovd eih ima četiri)
+#proizvoljan broj izraza razdvojenih tačkom (ovde ih ima četiri)
 
 Izvršavanje bilo kog izraza kom prethodi ==^== (kapica ili strelija na gore, što je na većini tastatura dobija kombinacijom tastera Shift+6) prouzrokovaće da metod prestane sa izvršavanjem na tom mestu i vrati vrednost izraza koji sledi iza ==^== kao rezultat izvršavanja. Metod koji završava bez eksplicitno navedenog vraćanja vrednosti nekog izraza, implicitno će vratiti objekat ==self==.
 
-PArametri i lokalne promenljive treba uvek da počinju malim slovom. Imena koj apočinju velikim slovom smatraju se globalnim premenljivim. Imena klasa, kao što je na primer ==Character==, su jednostavno globalne promenljive koje referenciraju objekte odgovarajuće klase.
+Parametri i lokalne promenljive treba uvek da počinju malim slovom. Imena koj apočinju velikim slovom smatraju se globalnim premenljivim. Imena klasa, kao što je na primer ==Character==, su jednostavno globalne promenljive koje referenciraju objekte odgovarajuće klase.
 
-!!!Block syntax
+!!!Sintaksa bloka
 
 Blocks (lexical closures) provide a mechanism to defer the execution of
 expressions. A block is essentially an anonymous function with a definition
