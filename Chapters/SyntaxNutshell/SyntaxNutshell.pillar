@@ -175,7 +175,7 @@ Ova kaskada ima potpuno isti efekat kao sekvenca u prethodnom primeru.
 
 !!!Sintaksa metoda
 
-Dok se izrazi mogu evaluirati bilo gde u Pharo okruženju (na primer, u plejgraund (''eng. playground) u debageru (''eng. debugger''), ili u brauzeru (''eng. browser''), metodi se obično definišu u prozoru brauzera ili u debageru. Metodi se, takođe, mogu učitati sa eksternog medijuma, ali ovo nije uobičajeni način programiranja u Pharo-u.
+Dok se izrazi mogu evaluirati bilo gde u Pharo okruženju (na primer, u plejgraundu (''eng. playground'') u debageru (''eng. debugger''), ili u brauzeru (''eng. browser''), metodi se obično definišu u prozoru brauzera ili u debageru. Metodi se, takođe, mogu učitati sa eksternog medijuma, ali ovo nije uobičajeni način programiranja u Pharo-u.
 
 Programi se razvijaju metod po metod, u kontekstu date klase. Klasa se definiše slanjem poruke postojećoj klasi, tražeći od nje da kreira svoju podklasu, tako da nema specijalne sintakse neophodne za kreiranje klasa.
 
