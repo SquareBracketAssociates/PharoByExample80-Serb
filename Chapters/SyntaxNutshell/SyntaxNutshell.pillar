@@ -64,7 +64,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 
 ""Brojevi sa plivajućom tačkom."" mogu biti zapisani eksponencijalno sa osnovom 10: ==2.4e7== je ==2.4 X 10^7==.
 
-""Karakteri."" Znak za dolar, $, uvodi literal karakter: ==$a== je literal za karakter =='a'==. Instance specijalnih karaktera koji se ne štampaju mogu biti pribavljene slanjem odgovarajućih, prigodno imenovanih poruka, kao što su ==Character space== i ==Character tab==, klasi ==Character==.
+""Karakteri."" Znak za dolar, ==$==, uvodi literal karakter: ==$a== je literal za karakter =='a'==. Instance specijalnih karaktera koji se ne štampaju mogu biti pribavljene slanjem odgovarajućih, prigodno imenovanih poruka, kao što su ==Character space== i ==Character tab==, klasi ==Character==.
 
 ""Stringovi."" Jednostruki navodnici ==' '== se koriste za definisanje string literala. Ao želite string koji sadrži jednostruke navodnike u sebi, samo duplirajte navodnik, kao u
 =='G'\'day'==.
@@ -117,7 +117,7 @@ U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==ni
 
 - ==thisContext== is a pseudo-variable that represents the top frame of the execution stack. ==thisContext== is normally not of interest to most programmers, but it is essential for implementing development tools like the debugger, and it is also used to implement exception handling and continuations.
 
-!!!Message sends
+!!!Slanje poruka
 
 Kao što smo videli, postoje tri vrste poruka u Pharo-u sa predefinisanim prioritetom. Ova razlika je napravljena da se smanji broj obaveznih zagrada.
 Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja, dok se dataljni opis može naći u Glavi *: Razumevanje sintakse poruka>../UnderstandingMessage/UnderstandingMessage.pier@chapterUnderstandingMessage*.
@@ -128,7 +128,7 @@ Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja
 #''Poruke sa ključnim rečima'' uzimaju proizvoljan broj argumenata. ==2 raisedTo: 6 modulo: 10== šalje poruku čiji je selektor ==raisedTo:modulo:==, a argumenti 6 i 10, objektu 2. Selektori poruka sa ključnim rečima sastoje se od niza alfanumeričkih reči (ključne reči) od kojih svaka počinje malim slovom i završava se dvotačkom.
 
 
-!!!!Message precedence.
+!!!!Prioritet poruka.
 Unarne poruke imaju najviši prioritet, zatim binarne poruke, i konačno poruke sa ključnim rečima.
 
 Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će nam dati rezultat 6. Zatim šaljemo poruku ==\+ 6== primaocu 1 što daje rezultat 7, i na kraju šaljemo poruku ==raisedTo: 7== objektu 2. 
