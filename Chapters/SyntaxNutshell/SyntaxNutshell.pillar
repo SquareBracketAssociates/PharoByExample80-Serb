@@ -176,22 +176,13 @@ Transcript
 Ova kaskada ima potpuno isti efekat kao sekvenca u prethodnom primeru.
 
 
-!!!Method syntax
+!!!Sintaksa metoda
 
-Whereas expressions may be evaluated anywhere in Pharo (for example, in a
-playground, in a debugger, or in a browser), methods are normally defined in a
-browser window, or in the debugger. Methods can also be filed in from an
-external medium, but this is not the usual way to program in Pharo.
+Dok se izrazi mogu evaluirati bilo gde u Pharo okruženju (na primer, u plejgraund (''eng. playground'', u debageru ''eng. debugger'', ili u brauzeru ''eng. browser''), metodi se obično definišu u prozoru brauzera ili u debageru. Metodi se, takođe, mogu učitati sa eksternog medijuma, ali ovo nije uobičajeni način programiranja u Pharo-u.
 
-Programs are developed one method at a time, in the context of a given class. A
-class is defined by sending a message to an existing class, asking it to create
-a subclass, so there is no special syntax required for defining classes.
+Programi se razvijaju metod po metod, u kontekstu date klase. Klasa se definiše slanjem poruke postojećoj klasi, tražeći od nje da kreira svoju podklasu, tako da nema specijalne sintakse neophodne za kreiranje klasa.
 
-Here is the method ==lineCount== in the class ==String==. The usual
-''convention'' is to refer to methods as ==ClassName>>methodName==. Here the
-method is then ==String>>lineCount==. Note that ==ClassName>>methodName== is not
-part of the Pharo syntax just a convention used in books to clearly define a
-method.
+Sledi metod ==lineCount== definisan u klasi ==String==. Uobičajena ''konvencija'' za navođenje metoda je u obliku ==ClassName>>methodName==.  Tako je ovde metod ==String>>lineCount==. Primetimo da ==ClassName>>methodName== nije deo Pharo sintakse, već samo konvencija korušćena u knjizi za jasnije navođenje metoda u okviru klase u kojoj je definisan.
 
 [[[
 String >> lineCount
@@ -204,22 +195,16 @@ String >> lineCount
 	^ count
 ]]]
 
-Syntactically, a method consists of:
+Sintaksno, metod se sastoji od:
 
-#the method pattern, containing the name (i.e., ==lineCount==) and any arguments (none in this example)
-#comments (these may occur anywhere, but the convention is to put one at the top that explains what the method does)
-#declarations of local variables (i.e., ==cr== and ==count==); and
-#any number of expressions separated by dots (here there are four)
+#paterna metoda, koji sadrži ime (==lineCount==) i proizvoljne parametre (nema parametara u ovom primeru),
+#comentare koji se mogu pojaviti bilo gde, ali prema konvenciji navodi se komentar na vrhu metoda da se objasni namena metoda,
+#deklaracije lokalnih promenljivih (==cr== i  ==count==), i
+#proizvoljan broj izraza razdvojenih tačkom (ovd eih ima četiri)
 
-The execution of any expression preceded by a ==^== (a caret or upper
-arrow, which is Shift-6 for most keyboards) will cause the method to exit at
-that point, returning the value of that expression. A method that terminates
-without explicitly returning some expression will implicitly return ==self==.
+Izvršavanje bilo kog izraza kom prethodi ==^== (kapica ili strelija na gore, što je na većini tastatura dobija kombinacijom tastera Shift+6) prouzrokovaće da metod prestane sa izvršavanjem na tom mestu i vrati vrednost izraza koji sledi iza ==^== kao rezultat izvršavanja. Metod koji završava bez eksplicitno navedenog vraćanja vrednosti nekog izraza, implicitno će vratiti objekat ==self==.
 
-Arguments and local variables should always start with lower case letters. Names
-starting with upper-case letters are assumed to be global variables. Class
-names, like ==Character==, for example, are simply global variables referring to
-the object representing that class.
+PArametri i lokalne promenljive treba uvek da počinju malim slovom. Imena koj apočinju velikim slovom smatraju se globalnim premenljivim. Imena klasa, kao što je na primer ==Character==, su jednostavno globalne promenljive koje referenciraju objekte odgovarajuće klase.
 
 !!!Block syntax
 
