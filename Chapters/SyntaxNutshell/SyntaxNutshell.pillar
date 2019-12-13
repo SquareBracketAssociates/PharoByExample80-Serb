@@ -94,7 +94,7 @@ closure'' ili leksičko zatvaranje ''eng. lexical closure''. To su objekti prve 
 modulo:==), od kojih se svaka završava s advotačkom i uzima tačno argument. U izrazu ==2 raisedTo: 6 modulo: 10==, selektor poruke
 ==raisedTo:modulo:== prima dva argumenta, 6 i 10, od kojih se svaki navodi iza odgovarajuće dvotačke. Ova poruka se šalje primaocu 2.
 
-""Sekvenca naredbi."" Tačka (==.==) je separator naredbi. Stavljanjem tačke izmedju dva izraza učiniće ih nezavisnim naredbama kao u ==x := 2 . x := x + x== gde u prvom izrazu promenljivoj ==x== dodeljujemo vrednost ==2==, a zatim njenu vrednost dupliramo dodeljujući joj vrednost zbira ==x+x==.
+""Sekvenca naredbi."" Tačka (==.==) je separator naredbi. Stavljanjem tačke izmedju dva izraza učiniće ih nezavisnim naredbama kao u ==x := 2 . x := x \+ x== gde u prvom izrazu promenljivoj ==x== dodeljujemo vrednost ==2==, a zatim njenu vrednost dupliramo dodeljujući joj vrednost zbira ==x \+ x==.
 
 ""Kaskade."" Tačka-zarez ( ==;== ) se može koristiti da se pošalje kaskada poruka jednom primaocu. U  ==stream nextPutAll: ’Hello World’; close.== prvo primaocu ==stream== šaljemo poruku sa ključnim rečima
  ==nextPutAll: ’Hello World’'== , a zatim istom primaocu šaljemo unarnu poruku ==close==.
