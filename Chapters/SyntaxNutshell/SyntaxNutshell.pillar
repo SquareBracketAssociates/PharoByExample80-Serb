@@ -82,7 +82,7 @@ Pogledajmo primere različitih elemenata sintakse u tabeli ispod.
 ""Dodela."" ==:= == dodeljuje objekat promenljivoj.
 
 ""Blokovi."" Unutar uglastih zagrada ==[ ]== definišemo blokove, koji su takođe poznati kao zatvaranje bloka ''eng. block
-closure'' ili leksičko zatvaranje ''eng. lexical closure''. To su objekti prve klase koji predstavljaju funkcije. Kao što ćemo videti, blokovi mogu imati argumente (==[:i | ...]==) i lokalne promenljive (==[| x | ...]) .
+closure'' ili leksičko zatvaranje ''eng. lexical closure''. To su objekti prve klase koji predstavljaju funkcije. Kao što ćemo videti, blokovi mogu imati argumente (==[:i | ...]==) i lokalne promenljive (==[| x | ...]==) .
 
 ""Primitivne operacije."" ==< primitive: ... >== označava  poziv primitivne operacije virtuelne mašine (VM). Na primer, ==< primitive: 1 >== je primitivna operacija VM za ==SmallInteger==. Bilo koji kod koji sledi iza primitivne operacije izvršava se samo ako primitivna operacija ne uspe. Ista sintaksa poruke unutar ==< >== se takođe koristi za druge vrste anotacije metoda (''eng. pragma'').
 
@@ -131,7 +131,7 @@ Ovde dajemo kratak pregled vrsta poruka i načine njihovog slanja i izvršavanja
 !!!!Prioritet poruka.
 Unarne poruke imaju najviši prioritet, zatim binarne poruke, i konačno poruke sa ključnim rečima.
 
-Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će nam dati rezultat 6. Zatim šaljemo poruku ==\+ 6== primaocu 1 što daje rezultat 7, i na kraju šaljemo poruku ==raisedTo: 7== objektu 2. 
+Tako u narednom primeru prvo šaljemo poruku ==factorial== primaocu 3 što će nam dati rezultat 6. Zatim šaljemo poruku ==+ 6== primaocu 1 što daje rezultat 7, i na kraju šaljemo poruku ==raisedTo: 7== objektu 2. 
 [[[testcase=true
 2 raisedTo: 1 + 3 factorial
 >>> 128
@@ -160,7 +160,7 @@ Transcript show: 'hello world'.
 Transcript cr
 ]]]
 
-Ovo će poslati poruku ==cr== objektu ==Transcript==, zatim će pbjektu Traskript poslati poruku ==show: 'hello world'==, i na kraju će mu ponovo poslati ==cr==.
+Ovo će poslati poruku ==cr== objektu ==Transcript==, zatim će objektu Transcript poslati poruku ==show: 'hello world'==, i na kraju će mu ponovo poslati ==cr==.
 tada se ovo može izraziti sažetije kao ''kaskada''. Primaoc se navodi samo jednom, a poruke koje mu se šalju se navode u nizu razdvojene tačka-zarezom.
 
 [[[
