@@ -113,9 +113,9 @@ U Pharo-u, postoji 6 rezervisanih ključnih reči, ili pseudo-promenljivih: ==ni
 
 - ==super== se takođe referencira na primaoca tekuće poruke, ali kada se pošalje poruka primaocu ==super==, odgovarajući metod koji će se izvršiti se traži počevši od super klase klase koja sadrži metod u kom se šalje poruka primaocu ==super==. Za više detalja pogledajte Glavu *: Pharo Objektni Model>../PharoObjectModel/PharoObjectModel.pier@cha:model*.
 
-- ==nil== is the undefined object. It is the unique instance of the class ==UndefinedObject==. Instance variables, class variables and local variables are initialized to ==nil==.
+- ==nil== je nedefinisan objekat. To je jedinstvena instanca klase ==UndefinedObject==. Promenljive instance, promenljive klase i lokalne promenljive su podrazumevano inicijalizovane na ==nil==.
 
-- ==thisContext== is a pseudo-variable that represents the top frame of the execution stack. ==thisContext== is normally not of interest to most programmers, but it is essential for implementing development tools like the debugger, and it is also used to implement exception handling and continuations.
+- ==thisContext== je pseudo-promenljiva koja predstavlja element na vrhu steka izvršavanja. ==thisContext== obično nije od interesta većini programera, ali je od esencijalnog značaja za implementaciju razvojnih alata kao što je debager, a takođe se koristi za implementaciju rukovanja izuzecima i kontinuacija.
 
 !!!Slanje poruka
 
