@@ -26,7 +26,7 @@ Sledeća terminologija će nam pomoći:
 -Poruka se šalje ""primaocu"" ("eng. receiver").
 -Kombinacije poruke i njenog primaoca  se zove ''slanje poruke'' (eng. a message send) kao što je prikazano na slici *@fig:firstScriptMessage*.
 
-+Dve slanja poruke koja se sastoje od primaoca, selektora metoda, i skupa argumenata.>file://figures/message.png|label=fig:firstScriptMessage|width=65+
++Dva slanja poruke koja se sastoje od primaoca, selektora metoda, i skupa argumenata.>file://figures/message.png|label=fig:firstScriptMessage|width=65+
 
 Poruka se uvek šalje primaocu, koji može biti jedan literal, blok, promenljiva, ili rezultat evaluacije druge poruke.
 Da bismo vam pomogli da prepoznate primaoca poruke, mi ćemo ga podvući za vas. Takođe ćemo zaokružiti svako slanje poruke elipsom i numerisati slanja poruka počevši od prve koja će biti poslata da vam pomognemo da uočite redosled u kom su poruke poslate.
