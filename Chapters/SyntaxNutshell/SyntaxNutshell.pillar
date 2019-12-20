@@ -221,11 +221,8 @@ Blokovi (leksička zatvaranja) obezbeđuju mehanizam da se odloži izračunavanj
 >>> 33
 ]]]
 
-Blocks may take parameters, each of which is declared with a leading colon. A
-vertical bar separates the parameter declaration(s) from the body of the block.
-To evaluate a block with one parameter, you must send it the message value: with
-one argument. A two-parameter block must be sent ==value:value:==, and so on, up
-to 4 arguments.
+Blokovi mogu imati parametre od kojih je svaki deklarisan sa dvotačkom ispred. Uspravna crta razvaja deklaraciju parametara od tela bloka.
+Za evaluaciju bloka sa jednim parametrom, potrebo je poslati mu poruku  ==value:== sa jednim argumentom. Bloku sa dva parametra moramo poslati poruku ==value:value:==, i tako dalje, do 4 argumenta.
 
 [[[example=true
 [ :x | 1 + x ] value: 2
@@ -237,13 +234,11 @@ to 4 arguments.
 >>> 3
 ]]]
 
-If you have a block with more than four parameters, you must use
-==valueWithArguments:== and pass the arguments in an array. (A block with a
-large number of parameters is often a sign of a design problem.)
+Ako imamo blok sa više od 4 parametra, moramo koristiti ==valueWithArguments:== i proslediti parametre u nizu. Ipak, blok sa velikim brojem parametara je često znak problema u dizajnu.
 
-Blocks may also declare local variables, which are surrounded by vertical bars,
-just like local variable declarations in a method. Locals are declared after any
-arguments:
+
+U bloku mogu biti deklarisane i lokalne promenljive, unutar vertikalnih crta,
+baš kao deklaracije lokalnih promenljivih u metodu. Lokalne promenljive deklarišu se iza parametara i uspravne crte koj arazdvaja deklaracije od deta bloka, a ispred tela bloka. U narednom primeru ==x== i ==y== su parametri, a ==z== je lokalna promenljiva.
 
 [[[example=true
 [ :x :y |
@@ -253,9 +248,7 @@ arguments:
 >>> 3
 ]]] 
 
-Blocks are actually lexical closures, since they can refer to variables of the
-surrounding environment. The following block refers to the variable ==x== of its
-enclosing environment:
+Blokovi su zapravo leksička zatvaranja i mogu referencirati promenljive iz svog okruženja. Naredni blok se referencira na promenljivu ==x== iz okruženja koje ga sadrži:
 
 [[[example=true
 | x |
@@ -264,9 +257,7 @@ x := 1.
 >>> 3
 ]]]
 
-Blocks are instances of the class ==BlockClosure==. This means that they are
-objects, so they can be assigned to variables and passed as arguments just like
-any other object.
+Blokovi su instance klase ==BlockClosure==. Ovo znači da su oni objekti, tako da oni mogu biti dodeljeni promenljivoj i prosleđeni kao argumenti baš kao i bilo koji drugi objekat.
 
 !!!Conditionals and loops in a nutshell
 
