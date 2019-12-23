@@ -259,18 +259,15 @@ x := 1.
 
 Blokovi su instance klase ==BlockClosure==. Ovo znači da su oni objekti, tako da oni mogu biti dodeljeni promenljivoj i prosleđeni kao argumenti baš kao i bilo koji drugi objekat.
 
-!!!Conditionals and loops in a nutshell
+!!!Uslovni izrazi i petlje 
 
-Pharo offers no special syntax for control constructs. Instead, these are
-typically expressed by sending messages to booleans, numbers and collections,
-with blocks as arguments.
+Pharo ne nudi posebnu sintaksu za kontrolne strukture. Umesto toga one su tipično izražene slanjem poruka objektima klasa ==Boolean== ili ==Number==, ili kolekcijama, sa blokom u argumentu.
 
 
-!!!Some conditionals
-Conditionals are expressed by sending one of the messages ==ifTrue:==,
-==ifFalse:== or ==ifTrue:ifFalse:== to the result of a boolean expression. See
-Chapter *: Basic Classes>../BasicClasses/BasicClasses.pier@cha:basicClasses*,
-for more about booleans.
+!!!Neki uslovni izrazi
+Uslovni izrazi mogu predstavljati slanje jedne od sledećih poruka ==ifTrue:==,
+==ifFalse:==, ==ifTrue:ifFalse:== or ==ifFalse:ifTrue:== to the result izrazu koji ima logičku vrednost (==Boolean== objekat). Pogledajte Glavu *: Basic Classes>../BasicClasses/BasicClasses.pier@cha:basicClasses*,
+za više informacija o ==Boolean== klasi.
 
 [[[example=true
 (17 * 13 > 220)
@@ -279,11 +276,8 @@ for more about booleans.
 >>>'bigger'
 ]]]
 
-!!!Some loops
-Loops are typically expressed by sending messages to blocks, integers or
-collections. Since the exit condition for a loop may be repeatedly evaluated, it
-should be a block rather than a boolean value. Here is an example of a very
-procedural loop:
+!!!Neke petlje
+Petlje obično predstavljaju slanje poruke bloku, celim brojevima ili kolekcijama. Kako se izlazni uslov može ponovljeno izračunavati on bi trebao da bude blok, a ne logička vrednostSledi primer veopma proceduralne petlje:
 
 [[[example=true
 n := 1.
@@ -292,7 +286,7 @@ n
 >>> 1024
 ]]]
 
-==whileFalse:== reverses the exit condition.
+==whileFalse:== zahteva inverzni izlazni uslov.
 
 [[[example=true
 n := 1.
@@ -301,7 +295,7 @@ n
 >>> 1024
 ]]]
 
-==timesRepeat:== offers a simple way to implement a fixed iteration:
+==timesRepeat:== nudi jednostavan nacin da se implementira fiksni broj iteracija kroz telo petlje:
 
 [[[example=true
 n := 1.
@@ -310,9 +304,7 @@ n
 >>> 1024
 ]]]
 
-We can also send the message ==to:do:== to a number which then acts as the
-initial value of a loop counter. The two arguments are the upper bound, and a
-block that takes the current value of the loop counter as its argument:
+Takođe možemo poslati poruku ==to:do:== broju koji onda ima ulogu inicijalne vrednosti brojača petlje. Dva argumenta su gornja granica i blok koji uzima trenutnu vrednost brojača petlje kao svoje argumente:
 
 [[[example=true
 result := String new.
@@ -321,17 +313,12 @@ result
 >>> '1 2 3 4 5 6 7 8 9 10 '
 ]]]
 
-!!!High-order iterators
-Collections comprise a large number of different
-classes, many of which support the same protocol. The most important messages
-for iterating over collections include ==do:==, ==collect:==, ==select:==,
-==reject:==, ==detect:== and ==inject:into:==. These messages define high-level
-iterators that allow one to write very compact code.
+!!!Iteratori višeg reda
+Kolekcije čine veliki broj različitih klasa, od kojih mnoge podržavaju isti protokol. Najznačajnije poruke za iteriranje nad kolekcijama uključuju  ==do:==, ==collect:==, ==select:==,
+==reject:==, ==detect:== i ==inject:into:==. Ove poruke predstavjaju iteratore višeg reda koji omogućavaju pisanje veoma kompaktnog koda.
 
-An ""Interval"" is a collection that lets one iterate over a sequence of numbers
-from the starting point to the end. ==1 to: 10== represents the interval from 1
-to 10. Since it is a collection, we can send the message ==do:== to it. The
-argument is a block that is evaluated for each element of the collection.
+""Interval"" je kolekcija koja omogućava iteriranje nad sekvencom brojeva od početne do krajnje tačke. ==1 to: 10== predstavlja interval od 1
+do 10. Kako je to kolekcija, možemo joj poslati poruku ==do:==. Argument je blok koji se evaluira za svaki element kolekcije.
 
 [[[example=true
 result := String new.
@@ -340,21 +327,18 @@ result
 >>> '1 2 3 4 5 6 7 8 9 10 '
 ]]]
 
-==collect:== builds a new collection of the same size, transforming each
-element. (You can think of ==collect:== as the Map in the MapReduce
-programming model).
+==collect:== gradi novu kolekciju iste veličine transformišući svaki element. Možete razmišljati o ==collect:== kao o ''Map'' funkciji u ''MapReduce'' modelu programiranja.
 
 [[[example=true
 (1 to:10) collect: [ :each | each * each ]
 >>> #(1 4 9 16 25 36 49 64 81 100)
 ]]]
 
-==select:== and ==reject:== build new collections, each containing a subset of
-the elements satisfying (or not) the boolean block condition.
+==select:== i ==reject:== grade nove kolekcije, od kojih svaka sadrži podskup elemenata polazne kolekcije koji zadovoljavaju, ili ne, respektivno logički uslov bloka.
 
-==detect:== returns the first element satisfying the condition. Don't forget
-that strings are also collections (of characters), so you can iterate over all
-the characters.
+==detect:== vraća prvi element u kolekciji koji zadovoljava uslov. 
+
+Ne zaboravite da su stringovi takođe kolekcije (karaktera), te možete iterirati nad karakterima.
 
 [[[example=true
 'hello there' select: [ :char | char isVowel ]
@@ -369,11 +353,7 @@ the characters.
 >>> $e
 ]]]
 
-Finally, you should be aware that collections also support a functional-style
-fold operator in the ==inject:into:== method. You can also think of it as the
-Reduce in the MapReduce programming model. This lets you generate a cumulative
-result using an expression that starts with a seed value and injects each
-element of the collection. Sums and products are typical examples.
+Konačno, trebamo biti svesni da kolekcije takođe podržavaju ''fold'' operator, u funkcionalnom stilu, u vidu ==inject:into:== poruke. Takođe možete razmišljati o ovme kao o ''Reduce'' funkciji u ''MapReduce'' modelu programiranja. Ovo vam omogućava da generišete kumulativan rezultat koristeći izraz koji polazi od semenske vrednosti i dodaje svaki element kolekcije. Sume i proizvodi su klasični primeri.
 
 [[[example=true
 (1 to: 10) inject: 0 into: [ :sum :each | sum + each]
@@ -382,8 +362,7 @@ element of the collection. Sums and products are typical examples.
 
 This is equivalent to ==0\+\1\+2\+3\+4\+5\+6\+7\+8\+9\+10==.
 
-More about collections can be found in Chapter
-*: Collections>../Collections/Collections.pier@cha:collections*.
+Više o kolekcijama možete pronaći u Glavi *: Collections>../Collections/Collections.pier@cha:collections*.
 
 !!!Primitives and pragmas
 
