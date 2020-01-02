@@ -1,3 +1,4 @@
+${inputFile:path=Chapters/PharoTour/PharoTour.pillar}$
 ${inputFile:path=Chapters/SyntaxNutshell/SyntaxNutshell.pillar}$
 ${inputFile:path=Chapters/UnderstandingMessage/UnderstandingMessage.pillar}$
 
