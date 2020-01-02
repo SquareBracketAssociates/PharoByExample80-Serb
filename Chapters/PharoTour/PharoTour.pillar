@@ -7,39 +7,31 @@ Zapravo, pokrenućemo Pharo, naučićemo različite načine za interakciju sa si
 
 @@note Većina uvodnog materijala u ovoj knjizi će raditi sa bilo kojom verzijom Pharo-a, te ako već imate neku instaliranu možete nastaviti da je koristite. Ipak, kako je knjiga pisana za Pharo 8, nemojte biti iznenađeni ako primetite razliku u prikazu ili ponašanju svog sistema i onoga što je ovde opisano.
 
-!!!Installing Pharo
+!!!Instalacija Pharo-a
 
-Pharo does not need to install anything in your system, as it's perfectly
-capable of running standalone. Depending on your platform, download the
-appropriate zip file, uncompress it in a directory of your choice and now you
-are ready to launch Pharo. In case of Ubuntu Linux, there is also the extra
-option of installing Pharo via the Pharo PPA. Pharo can be also installed via
-the command line.
+Nije potrebno da Pharo instalira nešto na vašem računaru jer je savršeno podoban za samostalno izvršavanje. Kao što će biti objašnjeno kasnije, se sastoji od četiri osnovne komponente: virtuelne mašine (VM), slike, izmena i izvornog koda.
 
-!!!!Downloading Pharo
+U zavisnosti od vaše platforme, preuzmite odgovarajući ==.zip== fajl, raspakujte ga u direktorijum po svom izboru i spremni ste da pokrenete Pharo. Pharo se takođe može instalirati iz komandne linije.
 
-Pharo is available as a free download from
-*http://pharo.org/download>http://pharo.org/download*. You can download Pharo either by using Pharo Launcher
-or by downloading one of the Pharo standalone versions.
+!!!!Preuzimanje Pharo-a
 
-Pharo Launcher is a cross-platform application that allows easy managing of Pharo images. Click the button for your
-operating system to download the appropriate Pharo Launcher, it contains everything you need to run Pharo.
+Pharo je dostupan za slobodno preuzimanje sa *http://pharo.org/download>http://pharo.org/download*. Možete preuzeti ''Pharo Launcher'' ili neku od Pharo samostalnih verzija.
 
-For standalone version download the appropriate ==.zip== file. Once that file is unzipped, it will contain everything you need to run
-Pharo (this includes the VM, the image, and the sources, as explained below).
+Pharo Launcher je međuplatformska aplikacija koja omoggućava upravljanje Pharo slikama. Kliknite na dugme koje predstavlja vaš operativni sistem da preuzmete odgovarajuđi ''Pharo Launcher'', on sadrži sve što je potrebno da se pokrene Pharo.
 
-!!!!Using handy scripts
+Za samostalnu verziju preuzmite odgovarajući ==.zip== fajl. Kada ga raspakujete, rezultujući direktorijum će sadržati sve što je potrebno da se pokrene Pharo.
 
-*http://files.pharo.org/get/* offers a collection of scripts to download
-specific versions of Pharo. This is really handy to automate the process.
+!!!!Instalacija upotrebom skripti
 
-To download the latest 8.0 full system, use the following snippet.
+*http://files.pharo.org/get/* nudi kolekciju skripti za preuzimanje specifičnih verzija Pharo-a. Ovo je prilično praktično da se automatizuje proces.
+
+Možete preuzeti kompletan Pharo 8.0 system upotrebom sledećeg fragmenta:
 
 [[[
 wget -O- get.pharo.org/80+vm | bash
 ]]]
 
-Then you can execute the following
+Zatim izvršite sledće:
 [[[
 ./pharo-ui Pharo.image
 ]]]
