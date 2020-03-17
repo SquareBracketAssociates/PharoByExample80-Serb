@@ -38,46 +38,27 @@ Zatim izvršite sledće:
 
 
 
-!!!Pharo: File Components
+!!!Pharo: sastavni fajlovi
 
-Pharo consists of four main component files.
-Although you do not need to deal with them directly for the purposes
-of this book, it is useful to understand the roles they play.
+Pharo čine četiri osnovna fajla. Iako nema potrebe da radite sa njima direktno, korisno je da  razumete njihove uloge.
 
-""1."" The ""virtual machine"" (VM) is the only component that is different for
-each operating system. The VM is the execution engine (similar to a JVM). It
-takes Pharo bytecode that is generated each time user compiles a piece of code,
-converts it to machine code and executes it. Pharo comes with the Cog VM a very
-fast JITing VM.
-The VM executable is named:
-- ==Pharo.exe== for Windows;
-- ==pharo== for Linux ; and
-- ==Pharo== for OSX (inside a package also named ==Pharo.app==).
+""1."" ""Virtuelna mašina"" (VM) je jedina komponenta koja se razlikuje za svaki opreativni sistem. VM je motor koji pokreće - uzima Pharo ''bajtkod'' koji se generiše svaki put kada korisnik kompajlira deo koda,
+prevodi ga u mašinski kod i izvršava ga. Pharo dolazi sa ''Cog VM'', veoma brzom ''JIT VM''.
+@@todo refs
 
-The other components below are portable across operating systems, and can be
-copied and run on any appropriate virtual machine.
+Izvršni VM fajlovi su imenovani:
+- ==Pharo.exe== za Windows;
+- ==pharo== za Linux ; i
+- ==Pharo== za OSX (unutar paketa kakođe ==Pharo.app==).
 
-""2."" The ""sources"" file contains source code for parts of Pharo that do not
-change frequently. Sources file is important because the image file format
-stores only objects including compiled methods and their bytecode and not their
-source code. Typically a new ""sources"" file is generated once per major
-release of Pharo. For Pharo 8.0, this file is named ==PharoV80.sources==.
+Ostale komponente, opisane u nastavku, su prenosive između operativnih sistema i mogu se kopirati i izvršavati na bilo kojoj odgovarajućoj VM.
 
-""3."" The ""changes"" file logs of all source code modifications (especially
-all the changes you did while programming) since the ==.sources== file was
-generated. Each release provides a near empty file named for the release, for
-example ==Pharo8.0.changes==. This facilitates a per method history for diffs or
-reverting. It means that even if you did not manage to save the image file on a
-crash or you just forgot, you can recover your changes from this file. A changes
-file is always coupled with a image file. They work in pair.
+""2."" ""Sources"" (izvorni kod) fajl sadrži izvorni kod za delove Pharo-a koji se ne menjaju često. ''Sources'' fajl je bitan jer slikovni (''eng. image'') fromat fajla smešta samo bjekte koji uključuju kompajlirane metode i njihov bajtkod, ali ne i njihov izvorni kod.Uobičajeno je da se novi ""sources"" fajl generiše jednom za glavno Pharo izdanje. Za Pharo 8.0 ovaj fajl je imenovan ==PharoV80.sources==.
 
-""4."" The ""image"" file provides a frozen in time snapshot of a running Pharo
-system. This is the file where all objects are stored and as such it's a cross
-platform format. An image file contains the live state of all objects of the
-system (including classes and compiled methods, since they are objects too) at a
-given point. An image is a virtual object container. The file is named for the
-release (like ==Pharo8.0.image==) and it is synched with the
-==Pharo8.0.changes== file.
+""3."" ""Changes"" (izmene) fajl beleži sve imene nad izvornim kodom, posebno izmene koje su nastale tokom programiranja, od momenta generisanja fajla ==.sources==. Svako izdanje obezbeđuje skoro prazan imenovan u skladu sa izdanjem (npr. ==Pharo8.0.changes==). Ovo omogućava istoriju izmena na nivou metoda i vraćanje na prethodne verzije. To znači da čak i ukoliko niste sačuvali izmene usled slučajnog ili prinudnog zatvaranja okruženja mozete oporaviti načinjene izmene iz ovog fajla.
+Fajl sa izmenama uvek ide u paru sa ""image"" fajlom. Oni rade zajedno.
+
+""4."" ""Image"" (slika) fajl obezbeđuje snimak Pharo sistema koji se izvršava zaleđen u vremenu.Ovo je fajl gde su svi objekti smešteni i kao takav je prenosiv između platformi. Image sadrži živo stanje svih objekata sistema u datom trenutku, uključujući klase i kompajlirane metode jer su i one objekti. Slika je vurtuelni kontejner objekata. Fajl je imenovan u skladu sa izdanjem (kao ==Pharo8.0.image==) i usklađen je sa fajlom sa izmenama ==Pharo8.0.changes==.
 
 !!!!Image/Changes Pair
 
