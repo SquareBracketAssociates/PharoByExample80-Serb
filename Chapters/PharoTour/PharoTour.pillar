@@ -60,21 +60,11 @@ Fajl sa izmenama uvek ide u paru sa ""image"" fajlom. Oni rade zajedno.
 
 ""4."" ""Image"" (slika) fajl obezbeđuje snimak Pharo sistema koji se izvršava zaleđen u vremenu.Ovo je fajl gde su svi objekti smešteni i kao takav je prenosiv između platformi. Image sadrži živo stanje svih objekata sistema u datom trenutku, uključujući klase i kompajlirane metode jer su i one objekti. Slika je vurtuelni kontejner objekata. Fajl je imenovan u skladu sa izdanjem (kao ==Pharo8.0.image==) i usklađen je sa fajlom sa izmenama ==Pharo8.0.changes==.
 
-!!!!Image/Changes Pair
+!!!!Par Slika/Izmene
 
-The ==.image== and ==.changes== files provided by a Pharo release are the
-starting point for a live environment that you adapt to your needs. As you work
-in Pharo, these files are modified, so you need to make sure that they are
-writable. Pay attention to remove the changes and image files from the list of
-files to be checked by anti-viruses. The ==.image== and ==.changes== files are
-intimately linked and should always be kept together, with matching base
-filenames. Never edit them directly with a text editor, as ==.images== holds
-your live object runtime memory, which indexes into the ==.changes== files for
-the source. It is a good idea to keep a backup copy of the downloaded ==.image==
-and ==.changes== files so you can always start from a fresh image and reload
-your code. However, the most efficient way for backing up code is to use a
-version control system that will provide an easier and powerful way to back up
-and track your changes.
+Fajlovi ==.image== i ==.changes==, obezbeđeni izdanjem Pharo-a, su polazna tačka za živo okruženje koje prilagođavate svojim protrebama. Dok radite u Pharo-u ovi fajlovi se menjaju pa je bitno obezbediti privilegije za upisivanje u fajl. Obratite pažnju da uklonite ove fajlove sa liste za proveru od strane anti-virus programa. Fajlovi koji sadrže sliku i izmene su blisko povezani i treba ih uvek čuvati zajedno, sa odgovarajućim osnovnim imenom fajla. Nikad ne uređujte fajlove editorom teksta , jer 
+jer slika sadrži izvršnu memoriju živih objekata koja se indeksira i fajlu sa izmenama. Nije loša ideja da se čuva rezervna kopija učitane slike i izmena kako bi se omogućilo ponovno pokretanje sveže slike i ponovno učitavanje svog koda. Ipak, najefikasniji način za čuvanje rezervne kopije koda je upotreba sistema za kontrolu verzija koji će obezbediti lakši i efikasniji način smeštanja rezervne kopije i praćenja izmena.
+
 
 !!!!Common Setup
 
