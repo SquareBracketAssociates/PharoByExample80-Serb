@@ -66,35 +66,26 @@ Fajlovi ==.image== i ==.changes==, obezbeđeni izdanjem Pharo-a, su polazna tač
 jer slika sadrži izvršnu memoriju živih objekata koja se indeksira i fajlu sa izmenama. Nije loša ideja da se čuva rezervna kopija učitane slike i izmena kako bi se omogućilo ponovno pokretanje sveže slike i ponovno učitavanje svog koda. Ipak, najefikasniji način za čuvanje rezervne kopije koda je upotreba sistema za kontrolu verzija koji će obezbediti lakši i efikasniji način smeštanja rezervne kopije i praćenja izmena.
 
 
-!!!!Common Setup
+!!!!Opšta podešavanja
 
-The four main component files above can be placed in the same directory,
-but it's a common practice to put the Virtual Machine and sources file in a
-separate directory where everyone has read-only access to them.
+Četiri glavna fajla mogu biti smeštena i zajednički direktorijum, ali uobičajena praksa je da se VM i izvorni kodovi smeštaju u poseban direktorijum gde svi imaju privilegiju samo za čitanje fajla.
 
-Do whatever works best for your style of working and your operating system.
+Radite onako kako najviše odgovara vašem stilu rada i vašem operativnom sistemu.
 
-!!!Launching Pharo
+!!!Pokretanje Pharo-a
 
-To start Pharo, if you're using Pharo Launcher, select the image you wish to use and press launch.
-Or if you are using standalone version do whatever your operating system expects: drag the .image file
-onto the icon of the virtual machine, or double-click the .image file, or at the
-command line type the name of the virtual machine followed by the path to the
-.image file.
+Da pokrenete Pharo, ako koristite Pharo Launcher, odaberite sliku (''eng. image'') koju želite da koristite i pritisnite ""launch"". 
 
-- On ""OS X"", double click the ==Pharo8.0.app== bundle in the unzipped download.
-- On ""Linux"", double click (or invoke from the command line) the ==pharo== executable bash script from the unzipped Pharo folder.
-- On ""Windows"", enter the unzipped Pharo folder and double click ==Pharo.exe==.
+Ako koristite samostalnu verziju uradite ono što vaš operativni sistem očekuje: prevucite .image fajl na ikonu virtualne mašine, ili dvokliknite na .image fajl, ili u komandnu liniju ukucajte ime virtualne mašine iza koje sledi putanja do .image fajla.
 
-In general, Pharo tries to "do the right thing". If you double click on the VM,
-it looks for an image file in the default location. If you double click on an
-==.image== file, it tries to find the nearest VM to launch it with.
+- Na ""OS X"", dupli klik na ==Pharo8.0.app== u raspakovanoj arhivi.
+- Na ""Linux""-u, dupli klik (ili pozvati iz komandne linije) ==pharo== izvršnu ==Bash== skriptu iz foldera u kom se nalazi raspakovana Pharo arhiva.
+- Na ""Windows"", uđite u folder u kom se nalazi raspakovana Pharo arhiva i dvokliknite na ==Pharo.exe==.
 
-If you have multiple VMs installed on your machine, the operating system may no
-longer be able to guess the right one. In this case, it is safer to specify
-exactly which ones you meant to launch, either by dragging and dropping the
-image file onto the VM, or specifying the image on the command line (see the
-next section).
+Generalno, Pharo pokušava da "uradi pravu stvar". Ako dvokliknete na VM,
+traži .image fajl na standardnoj lokaciji. Ako dvokliknete na ==.image== fajl, pokušaće da pronađe najbližu VM da je pokrene.
+
+Ako imate više virtualnih mašina instaliranih na svojoj mašini, operativni sistem možda neće više biti u mogućnosti da odabere odgovarajuću. U ovom slučaju, sigurnije je odrediti koju tačno VM želite da pokrenete, bilo prevlačenjem .image fajla na VM, ili pokretanjem iz komandne linije (videti narednu sekciju).
 
 !!!Launching Pharo Via the Command Line
 
